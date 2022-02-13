@@ -1,0 +1,6 @@
+{ callPackage }:
+
+{
+  abstractdark = callPackage ./abstractdark { };
+}
+
