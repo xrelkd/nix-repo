@@ -41,6 +41,7 @@ with pkgs; {
   valo = callPackage ./pkgs/os-specific/linux/valo { };
   gdv-dl = callPackage ./pkgs/tools/misc/gdv-dl { };
   rnm = callPackage ./pkgs/tools/misc/rnm { };
+  xenon = callPackage ./pkgs/tools/misc/xenon { };
 
   ssh-tools =
     callPackage ./pkgs/tools/networking/ssh-tools { };
