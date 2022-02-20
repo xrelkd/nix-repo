@@ -40,7 +40,6 @@ with pkgs; {
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   valo = callPackage ./pkgs/os-specific/linux/valo { };
   gdv-dl = callPackage ./pkgs/tools/misc/gdv-dl { };
-  rnm = callPackage ./pkgs/tools/misc/rnm { };
   xenon = callPackage ./pkgs/tools/misc/xenon { };
 
   ssh-tools =
