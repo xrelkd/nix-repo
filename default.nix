@@ -67,5 +67,4 @@ with pkgs; {
   wqy-microhei = callPackage ./pkgs/data/fonts/wqy-microhei { };
 
   firefox-hidpi = callPackage ./pkgs/applications/networking/browsers/firefox-hidpi { };
-  chromium-hidpi = callPackage ./pkgs/applications/networking/browsers/chromium-hidpi { };
 }
