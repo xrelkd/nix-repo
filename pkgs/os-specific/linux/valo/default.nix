@@ -2,19 +2,20 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "valo";
-  version = "0.2.1";
+  version = "0.2.2";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    sha256 = "1wjbc96g2j5sr8mw7kv7bzwlsij9kkwxdmcqkmp3pwfdkp2icd6f";
+    sha256 = "sha256-ScvyfcM09B+l1QRIqA85ETdlrN3bNuV4arJIziDUmdg=";
   };
 
-  cargoSha256 = "sha256-7aanbdECDghkGTslFiJq4LEb6cgnPT6JD7oM/D/dJNY=";
+  cargoSha256 = "sha256-Y9o8I53DCSWXAslaXLNSg7aWOYiob+JRDKC8ZqNrkgQ=";
 
   postInstall = ''
     mkdir -p "$out/share/"{bash-completion/completions,fish/completions,zsh/site-functions}
+
     $out/bin/valo completions bash > $out/share/bash-completion/completions/valo
     $out/bin/valo completions fish > $out/share/fish/completions/valo.fish
     $out/bin/valo completions zsh > $out/share/zsh/site-functions/_valo
