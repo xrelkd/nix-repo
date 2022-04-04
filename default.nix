@@ -36,6 +36,7 @@ with pkgs; {
     pulseSupport = true;
   };
 
+  axdot = callPackage ./pkgs/tools/misc/axdot { };
   eriksync = callPackage ./pkgs/tools/misc/eriksync { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   valo = callPackage ./pkgs/os-specific/linux/valo { };
