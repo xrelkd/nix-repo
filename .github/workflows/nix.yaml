@@ -1,0 +1,46 @@
+name: "Nix Packages"
+
+on:
+  push:
+    branches:
+      - ci/*
+      - main
+  pull_request:
+    paths:
+      - default.nix
+      - flake.lock
+      - flake.nix
+      - shell.nix
+
+jobs:
+  build-application-packages:
+    name: Build Application Packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Nix Packages
+        run: |
+          ./dev-support/bin/build-application-derivations
+
+  build-data-packages:
+    name: Build Data Packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Nix Packages
+        run: |
+          ./dev-support/bin/build-data-derivations
