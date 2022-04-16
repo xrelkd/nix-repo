@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# shellcheck source=/dev-support/lib/logging
+. "${SCRIPT_DIR}"/../lib/logging
+
+drvs=(
+	slock
+	polybar
+
+	axdot
+	eriksync
+	clipcat
+	valo
+	gdv-dl
+	xenon
+
+	ssh-tools
+
+	firefox-hidpi
+)
+
+for drv in ${drvs[@]}; do
+	info "Building derivation ${drv}"
+
+	nix build --json -L --no-link ".#${drv}" | jq
+done
