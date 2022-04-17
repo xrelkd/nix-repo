@@ -50,7 +50,7 @@ drvs=(
 	wqy-microhei
 )
 
-for drv in ${drvs[@]}; do
+for drv in "${drvs[@]}"; do
 	info "Building derivation ${drv}"
 
 	nix build --json -L --no-link ".#${drv}" | jq
