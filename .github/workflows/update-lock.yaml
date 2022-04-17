@@ -1,0 +1,42 @@
+name: Update flake.lock
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+
+jobs:
+  update-flake-lock:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run nix-flake-update
+        run: |
+          echo "Updating flake lock file"
+          changed=$(nix flake update 2>&1 | grep -v warning || echo "Nothing changed")
+
+          git add flake.lock
+          git commit -m "chore(nix): update \`flake.lock\`
+
+          Input changes:
+
+          $changed" || echo "No changes to commit"
+
+          echo "Nix flake lock updated:
+
+          $changed"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          base: main
+          branch: chore/update-nix-flake
+          title: "chore(nix): update `flake.lock`"
+          body: "chore(nix): update `flake.lock`"
