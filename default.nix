@@ -43,6 +43,8 @@ with pkgs; {
   gdv-dl = callPackage ./pkgs/tools/misc/gdv-dl { };
   xenon = callPackage ./pkgs/tools/misc/xenon { };
 
+  cargo-member = callPackage ./pkgs/development/tools/rust/cargo-member { };
+
   ssh-tools =
     callPackage ./pkgs/tools/networking/ssh-tools { };
 
