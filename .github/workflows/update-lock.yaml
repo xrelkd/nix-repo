@@ -6,8 +6,8 @@ on:
 
 jobs:
   update-flake-lock:
+    name: Update flake.lock
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
         with:
@@ -20,25 +20,8 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup git configuration
-        run: |
-          git config user.name actions
-          git config user.email "actions@github.com"
-
-      - name: Run nix-flake-update
-        run: |
-          echo "Updating flake lock file"
-          changed=$(nix flake update 2>&1 | grep -v warning || echo "Nothing changed")
-
-          git add flake.lock
-          git commit -m "chore(nix): update \`flake.lock\`
-
-          Input changes:
-
-          $changed" || echo "No changes to commit"
-
-          git push origin main
-
-          echo "Nix flake lock updated:
-
-          $changed"
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@v9
+        with:
+          pr-title: "chore(nix): update `flake.lock`"
+          commit-msg: "chore(nix): update `flake.lock`"
