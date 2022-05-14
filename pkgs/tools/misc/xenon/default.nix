@@ -5,16 +5,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "xenon";
-  version = "0.3.0";
+  version = "0.4.0";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-1PvZsuRVpj7nPOPGe4F3/jKJejZlUGt2wrQnnm0coVQ=";
+    sha256 = "sha256-RYLhn+a2fjjB92g9vliPe+3KBJ810nvC0EvplRyHTXI=";
   };
 
-  cargoSha256 = "sha256-RY8E1PNMYMmCgo6A8PcGLqK5jrhIN92dbc8Ns97l+ao=";
+  cargoSha256 = "sha256-Ambit6EoWqzxdSdSpuNyVzDdAiqdKDUKvzMEO7INyVM=";
 
   postInstall = ''
     mkdir -p "$out/share/"{bash-completion/completions,fish/completions,zsh/site-functions}
