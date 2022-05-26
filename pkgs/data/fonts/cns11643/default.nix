@@ -8,10 +8,13 @@ fetchzip {
   name = "${pname}-${version}";
 
   url = "mirror://ubuntu/pool/multiverse/f/fonts-cns11643/fonts-${pname}_${version}.orig.tar.xz";
-  sha256 = "sha256-INi+k53UrAlxf96rtg4zeMD1jIqzoAam9UZCRbr2evU=";
+
+  sha256 = "sha256-Fww98FJ7IoFTLVxdP87BRUwBnt7ftdUiTN4NYUgxPTY=";
+
+  downloadToTemp = true;
 
   postFetch = ''
-    tar -xJvf $downloadedFile --strip-components=1
+    cd $out
     install -m444 -Dt $out/share/fonts/truetype *.ttf
   '';
 
