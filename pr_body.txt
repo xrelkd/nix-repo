@@ -1,0 +1,19 @@
+Automated changes by the [update-flake-lock](https://github.com/DeterminateSystems/update-flake-lock) GitHub Action.
+
+```
+Flake lock file updates:%0A%0A• Updated input 'nixpkgs':%0A    'github:NixOS/nixpkgs/ce49cb7792a7ffd65ef352dda1110a4e4a204eac' (2022-07-26)%0A  → 'github:NixOS/nixpkgs/bba87fc2a33618d86233fbdddc6b84971e6b5558' (2022-07-28)
+```
+
+### Running GitHub Actions on this PR
+
+GitHub Actions will not run workflows on pull requests which are opened by a GitHub Action.
+
+To run GitHub Actions workflows on this PR, run:
+
+```sh
+git branch -D update_flake_lock_action
+git fetch origin
+git checkout update_flake_lock_action
+git commit --amend --no-edit
+git push origin update_flake_lock_action --force
+```
