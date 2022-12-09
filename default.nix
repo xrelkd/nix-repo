@@ -19,6 +19,10 @@ with pkgs; {
   i3 = i3.override { stdenv = clangStdenv; };
   picom = picom.override { stdenv = clangStdenv; };
 
+  mpv = mpv.override {
+    scripts = [ mpvScripts.vr-reversal ];
+  };
+
   librime = librime.override { stdenv = clangStdenv; };
   fcitx5-rime = fcitx5-rime.override { stdenv = clangStdenv; };
 
