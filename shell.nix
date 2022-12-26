@@ -7,7 +7,10 @@ pkgs.mkShell rec {
 
   buildInputs = with pkgs; [
     jq
+
     nix-update
+
+    treefmt
     nixpkgs-fmt
     shfmt
     nodePackages.prettier
