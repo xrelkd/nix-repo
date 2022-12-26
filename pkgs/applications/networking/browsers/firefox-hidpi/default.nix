@@ -6,7 +6,9 @@ stdenvNoCC.mkDerivation {
 
   phases = [ "installPhase" ];
 
-  buildInputs = [ firefox makeWrapper ];
+  buildInputs = [ firefox ];
+
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     mkdir -p $out/bin
