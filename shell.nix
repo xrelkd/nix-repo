@@ -11,6 +11,8 @@ pkgs.mkShell rec {
     nixpkgs-fmt
     shfmt
     nodePackages.prettier
+
+    nixpkgs-lint
   ];
 
   shellHook = ''
