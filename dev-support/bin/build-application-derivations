@@ -9,24 +9,25 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 . "${SCRIPT_DIR}"/../lib/logging
 
 drvs=(
-	slock
-	polybar
+    slock
+    polybar
 
-	axdot
-	eriksync
-	clipcat
-	valo
-	gdv-dl
-	xenon
+    axdot
+    tunka
+    eriksync
+    clipcat
+    valo
+    gdv-dl
+    xenon
 
-	ssh-tools
+    ssh-tools
 
-	firefox-hidpi
-	wit-bindgen
+    firefox-hidpi
+    wit-bindgen
 )
 
 for drv in "${drvs[@]}"; do
-	info "Building derivation ${drv}"
+    info "Building derivation ${drv}"
 
-	nix build --json -L --no-link ".#${drv}" | jq
+    nix build --json -L --no-link ".#${drv}" | jq
 done

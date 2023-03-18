@@ -9,22 +9,22 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 . "${SCRIPT_DIR}"/../lib/logging
 
 drvs=(
-	desktop-wallpapers.fedora-28.zen
+    desktop-wallpapers.fedora-28.zen
 
-	sddm-themes.abstractdark
+    sddm-themes.abstractdark
 
-	fcitx5-themes.material-color
-	fcitx5-themes.nord
-	fcitx5-themes.thep0y
+    fcitx5-themes.material-color
+    fcitx5-themes.nord
+    fcitx5-themes.thep0y
 
-	cns11643-fonts
-	cwtex-q-fonts
-	ionicons
-	wqy-microhei
+    cns11643-fonts
+    cwtex-q-fonts
+    ionicons
+    wqy-microhei
 )
 
 for drv in "${drvs[@]}"; do
-	info "Building derivation ${drv}"
+    info "Building derivation ${drv}"
 
-	nix build --json -L --no-link ".#${drv}" | jq
+    nix build --json -L --no-link ".#${drv}" | jq
 done
