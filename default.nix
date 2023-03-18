@@ -43,6 +43,7 @@ with pkgs; {
   leftwm = callPackage ./pkgs/applications/window-managers/leftwm { };
 
   axdot = callPackage ./pkgs/tools/misc/axdot { };
+  tunka = callPackage ./pkgs/tools/misc/tunka { };
   eriksync = callPackage ./pkgs/tools/misc/eriksync { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   valo = callPackage ./pkgs/os-specific/linux/valo { };
