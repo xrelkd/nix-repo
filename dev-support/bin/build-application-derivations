@@ -23,7 +23,6 @@ drvs=(
     ssh-tools
 
     firefox-hidpi
-    wit-bindgen
 )
 
 for drv in "${drvs[@]}"; do
