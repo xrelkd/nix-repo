@@ -33,8 +33,6 @@ drvs=(
     gdv-dl
     xenon
 
-    wit-bindgen
-
     ssh-tools
 
     firefox-hidpi
