@@ -43,11 +43,12 @@ with pkgs; {
   leftwm = callPackage ./pkgs/applications/window-managers/leftwm { };
 
   axdot = callPackage ./pkgs/tools/misc/axdot { };
-  tunka = callPackage ./pkgs/tools/misc/tunka { };
-  eriksync = callPackage ./pkgs/tools/misc/eriksync { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
-  valo = callPackage ./pkgs/os-specific/linux/valo { };
+  eriksync = callPackage ./pkgs/tools/misc/eriksync { };
   gdv-dl = callPackage ./pkgs/tools/misc/gdv-dl { };
+  tunelo = callPackage ./pkgs/tools/networking/tunelo { };
+  tunka = callPackage ./pkgs/tools/misc/tunka { };
+  valo = callPackage ./pkgs/os-specific/linux/valo { };
   xenon = callPackage ./pkgs/tools/misc/xenon { };
 
   cargo-member = callPackage ./pkgs/development/tools/rust/cargo-member { };
