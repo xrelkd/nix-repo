@@ -9,7 +9,7 @@ fetchzip {
 
   url = "mirror://ubuntu/pool/multiverse/f/fonts-cns11643/fonts-${pname}_${version}.orig.tar.xz";
 
-  sha256 = "sha256-Fww98FJ7IoFTLVxdP87BRUwBnt7ftdUiTN4NYUgxPTY=";
+  hash = "sha256-Fww98FJ7IoFTLVxdP87BRUwBnt7ftdUiTN4NYUgxPTY=";
 
   downloadToTemp = true;
 

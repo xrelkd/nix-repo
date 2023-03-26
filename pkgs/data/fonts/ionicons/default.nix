@@ -11,7 +11,7 @@ fetchFromGitHub rec {
   repo = pname;
   rev = "v${version}";
 
-  sha256 = "sha256-UooZ+rnq7mxCzYQby2y7cOe/Clk8ir5ETOH3N2cPg8s=";
+  hash = "sha256-UooZ+rnq7mxCzYQby2y7cOe/Clk8ir5ETOH3N2cPg8s=";
 
   downloadToTemp = true;
 

@@ -1,6 +1,7 @@
 { lib
-, rustPlatform
 , fetchFromGitHub
+, rustPlatform
+, installShellFiles
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -11,17 +12,18 @@ rustPlatform.buildRustPackage rec {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-RYLhn+a2fjjB92g9vliPe+3KBJ810nvC0EvplRyHTXI=";
+    hash = "sha256-RYLhn+a2fjjB92g9vliPe+3KBJ810nvC0EvplRyHTXI=";
   };
 
-  cargoSha256 = "sha256-Ambit6EoWqzxdSdSpuNyVzDdAiqdKDUKvzMEO7INyVM=";
+  cargoHash = "sha256-Ambit6EoWqzxdSdSpuNyVzDdAiqdKDUKvzMEO7INyVM=";
+
+  nativeBuildInputs = [ installShellFiles ];
 
   postInstall = ''
-    mkdir -p "$out/share/"{bash-completion/completions,fish/completions,zsh/site-functions}
-
-    $out/bin/xenon completions bash > $out/share/bash-completion/completions/xenon
-    $out/bin/xenon completions fish > $out/share/fish/completions/xenon.fish
-    $out/bin/xenon completions zsh > $out/share/zsh/site-functions/_xenon
+    installShellCompletion --cmd xenon \
+      --bash <($out/bin/xenon completions bash) \
+      --fish <($out/bin/xenon completions fish) \
+      --zsh  <($out/bin/xenon completions zsh)
   '';
 
   meta = with lib; {
