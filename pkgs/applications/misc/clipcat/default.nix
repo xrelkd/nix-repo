@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0rxl3ksjinw07q3p2vjqg80k3c6wx2q7pzpf2344zyfb4gkqzx1c";
+    hash = "0rxl3ksjinw07q3p2vjqg80k3c6wx2q7pzpf2344zyfb4gkqzx1c";
   };
 
   cargoSha256 = "1n4il3l59m2a6ca54vfaivzg25abf8s4w5kpd5q51p13624iz0kb";

@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     owner = "vittsjo";
     repo = pname;
     rev = "5851f6c9774e872628bda5a3828f5d22a6e47130";
-    sha256 = "083rf17m2xnpjwc4mv4nxsmm50rfp1jqmxj7dayn7xw4mkzy09np";
+    hash = "083rf17m2xnpjwc4mv4nxsmm50rfp1jqmxj7dayn7xw4mkzy09np";
   };
 
   installPhase = ''

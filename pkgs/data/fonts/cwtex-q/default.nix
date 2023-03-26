@@ -8,7 +8,7 @@ stdenvNoCC.mkDerivation rec {
     owner = "l10n-tw";
     repo = "cwtex-q-fonts-TTFs";
     rev = version;
-    sha256 = "sha256-88fz7pH8IWWTXCrfzFDajiyisWYDl22QjlUq0kqM+5s=";
+    hash = "sha256-88fz7pH8IWWTXCrfzFDajiyisWYDl22QjlUq0kqM+5s=";
   };
 
   installPhase = ''

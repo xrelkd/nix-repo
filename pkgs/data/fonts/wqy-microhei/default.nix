@@ -6,7 +6,7 @@ stdenvNoCC.mkDerivation rec {
 
   src = fetchurl {
     url = "mirror://ubuntu/pool/universe/f/fonts-wqy-microhei/fonts-${pname}_${version}_all.deb";
-    sha256 = "sha256-54J7yhZHWgLyndelkgjBeQmSA3pD1kiWMgVyNi0b150=";
+    hash = "sha256-54J7yhZHWgLyndelkgjBeQmSA3pD1kiWMgVyNi0b150=";
   };
 
   buildInputs = [ dpkg ];

@@ -11,7 +11,7 @@ stdenvNoCC.mkDerivation rec {
     owner = "3ximus";
     repo = "abstractdark-sddm-theme";
     rev = "e817d4b27981080cd3b398fe928619ffa16c52e7";
-    sha256 = "sha256-XmhTVs/1Hzrs+FBRbFEOSIFOrRp0VTPwIJmSa2EgIeo=";
+    hash = "sha256-XmhTVs/1Hzrs+FBRbFEOSIFOrRp0VTPwIJmSa2EgIeo=";
   };
 
   installPhase = ''
