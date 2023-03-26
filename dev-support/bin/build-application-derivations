@@ -13,6 +13,7 @@ drvs=(
     polybar
 
     axdot
+    tunelo
     tunka
     eriksync
     clipcat
