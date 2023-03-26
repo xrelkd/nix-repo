@@ -1,4 +1,8 @@
-{ lib, fetchFromGitHub, rustPlatform }:
+{ lib
+, fetchFromGitHub
+, rustPlatform
+, installShellFiles
+}:
 
 rustPlatform.buildRustPackage rec {
   pname = "valo";
@@ -11,14 +15,15 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-ScvyfcM09B+l1QRIqA85ETdlrN3bNuV4arJIziDUmdg=";
   };
 
-  cargoSha256 = "sha256-Y9o8I53DCSWXAslaXLNSg7aWOYiob+JRDKC8ZqNrkgQ=";
+  cargoHash = "sha256-Y9o8I53DCSWXAslaXLNSg7aWOYiob+JRDKC8ZqNrkgQ=";
+
+  nativeBuildInputs = [ installShellFiles ];
 
   postInstall = ''
-    mkdir -p "$out/share/"{bash-completion/completions,fish/completions,zsh/site-functions}
-
-    $out/bin/valo completions bash > $out/share/bash-completion/completions/valo
-    $out/bin/valo completions fish > $out/share/fish/completions/valo.fish
-    $out/bin/valo completions zsh > $out/share/zsh/site-functions/_valo
+    installShellCompletion --cmd valo \
+      --bash <($out/bin/valo completions bash) \
+      --fish <($out/bin/valo completions fish) \
+      --zsh  <($out/bin/valo completions zsh)
   '';
 
   meta = with lib; {

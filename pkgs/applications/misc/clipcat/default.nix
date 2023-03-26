@@ -19,10 +19,10 @@ rustPlatform.buildRustPackage rec {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "0rxl3ksjinw07q3p2vjqg80k3c6wx2q7pzpf2344zyfb4gkqzx1c";
+    hash = "sha256-LPSP5yPL+U/IEO7+e7Do3LAxAXpYbnEHPoDbKPUctGc=";
   };
 
-  cargoSha256 = "1n4il3l59m2a6ca54vfaivzg25abf8s4w5kpd5q51p13624iz0kb";
+  cargoHash = "sha256-a4IfiTAj3FBwaXcWTjRySxXx/o7KbVIUM0rUVOigkdg=";
 
   LIBCLANG_PATH = "${llvmPackages.libclang.lib}/lib";
 

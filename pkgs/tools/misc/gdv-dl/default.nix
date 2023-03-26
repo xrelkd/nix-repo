@@ -1,16 +1,20 @@
-{ stdenv, lib, fetchFromGitHub }:
+{ lib
+, stdenvNoCC
+, fetchFromGitHub
+}:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "gdv-dl";
   version = "0.0.1";
-  phases = [ "installPhase" ];
 
   src = fetchFromGitHub {
     owner = "vittsjo";
     repo = pname;
     rev = "5851f6c9774e872628bda5a3828f5d22a6e47130";
-    hash = "083rf17m2xnpjwc4mv4nxsmm50rfp1jqmxj7dayn7xw4mkzy09np";
+    hash = "sha256-1ybg/6yE92O9akf2imW4LoNSq+6W7EoYl9d2UU9weSA=";
   };
+
+  phases = [ "installPhase" ];
 
   installPhase = ''
     mkdir -p $out/bin
