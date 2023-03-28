@@ -18,7 +18,7 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
-            self.overlay
+            self.overlays.default
             nixpkgs-lint.overlays.default
           ];
         };
@@ -32,8 +32,6 @@
 
         formatter = pkgs.treefmt;
       }) // {
-
-    overlay = final: prev: import ./default.nix { pkgs = prev; };
-
+    overlays.default = final: prev: import ./default.nix { pkgs = prev; };
   });
 }
