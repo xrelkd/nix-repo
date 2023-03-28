@@ -28,8 +28,12 @@
           pkgs = import nixpkgs { inherit system; };
         };
 
-        devShell = pkgs.callPackage ./shell.nix { };
+        devShells.default = pkgs.callPackage ./shell.nix { };
+
+        formatter = pkgs.treefmt;
       }) // {
+
     overlay = final: prev: import ./default.nix { pkgs = prev; };
+
   });
 }

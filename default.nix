@@ -3,22 +3,6 @@
 }:
 
 with pkgs; {
-  zsh = zsh.override { stdenv = clangStdenv; };
-  tmux = tmux.override { stdenv = clangStdenv; };
-
-  htop = htop.override { stdenv = clangStdenv; };
-
-  aria2 = aria2.override { stdenv = clangStdenv; };
-  axel = axel.override { stdenv = clangStdenv; };
-  wget = wget.override { stdenv = clangStdenv; };
-
-  nmap = nmap.override { stdenv = clangStdenv; };
-  mtr = mtr.override { stdenv = clangStdenv; };
-  iperf = iperf.override { stdenv = clangStdenv; };
-
-  i3 = i3.override { stdenv = clangStdenv; };
-  picom = picom.override { stdenv = clangStdenv; };
-
   mpv = mpv.override {
     scripts = [ mpvScripts.vr-reversal ];
   };
