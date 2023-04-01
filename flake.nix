@@ -33,5 +33,12 @@
         formatter = pkgs.treefmt;
       }) // {
     overlays.default = final: prev: import ./default.nix { pkgs = prev; };
+
+    nixosModules = {
+      programs = {
+        slock = import ./modules/programs/slock.nix;
+      };
+    };
+
   });
 }
