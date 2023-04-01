@@ -37,6 +37,7 @@
     nixosModules = {
       programs = {
         slock = import ./modules/programs/slock.nix;
+        valo = import ./modules/programs/valo.nix;
       };
     };
 
