@@ -13,12 +13,13 @@ drvs=(
     polybar
 
     axdot
+    clipcat
+    eriksync
+    gdv-dl
+    norden
     tunelo
     tunka
-    eriksync
-    clipcat
     valo
-    gdv-dl
     xenon
 
     ssh-tools
