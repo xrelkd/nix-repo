@@ -6,13 +6,13 @@
 
 buildGoModule rec {
   pname = "norden";
-  version = "0.3.0";
+  version = "0.3.1";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = "norden";
     rev = "v${version}";
-    hash = "sha256-2LOAioXZ2jeCPgefL0sr3tuYy2Pu3LqLssCvboi8rig=";
+    hash = "sha256-8T00CWDTZyeFFQeFIlbjxBVQJnbVFF4PkGvEpFmgANY=";
   };
 
   vendorHash = "sha256-BQ9l8/rmvf/HG1TwpdoZNQ06dpqzXD+30jFL0us2IwU=";
