@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "xenon";
-  version = "0.6.0";
+  version = "0.6.1";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-u+KTirjVsmNhMe/TgegHOtPsmWFIpgdw7gFxvA6WEV0=";
+    hash = "sha256-B9CBCv8ciYUy8qLn8ZofAeeba9EtpBRIE3/5f2wFFoE=";
   };
 
-  cargoHash = "sha256-UtvpDl6i7HDJCClYsU1r0uocnE+FJHhxvVEGITsERVM=";
+  cargoHash = "sha256-Es8gr7Vi3YqKwD23iMCCs0PjA1IYWhYMTdxPzn06oGs=";
 
   nativeBuildInputs = [ installShellFiles ];
 
