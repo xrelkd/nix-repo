@@ -24,8 +24,6 @@ with pkgs; {
     pulseSupport = true;
   };
 
-  leftwm = callPackage ./pkgs/applications/window-managers/leftwm { };
-
   axdot = callPackage ./pkgs/tools/misc/axdot { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   eriksync = callPackage ./pkgs/tools/misc/eriksync { };
