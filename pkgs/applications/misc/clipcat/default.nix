@@ -5,7 +5,7 @@
 , rustfmt
 , xorg
 , pkg-config
-, llvmPackages
+, llvmPackages_16
 , clang
 , protobuf
 , python3
@@ -13,18 +13,25 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "clipcat";
-  version = "0.5.0";
+  version = "unstable-2023-11-20";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
-    rev = "v${version}";
-    hash = "sha256-LPSP5yPL+U/IEO7+e7Do3LAxAXpYbnEHPoDbKPUctGc=";
+    rev = "73d7660298f357e3b41e8fa1beae0aa81a8682ab";
+    hash = "sha256-i0kj3OZVUGJqdO3JTgZj0/yNH9EpLT/wsmY1kWAZ3s4=";
   };
 
-  cargoHash = "sha256-a4IfiTAj3FBwaXcWTjRySxXx/o7KbVIUM0rUVOigkdg=";
+  cargoHash = "sha256-a4IfiTAj3FBwaXcWTjRySxXx/o7KbVIUM0r89Oigkdg=";
 
-  LIBCLANG_PATH = "${llvmPackages.libclang.lib}/lib";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "caracal-0.1.0" = "sha256-6B6H1jB1MbFQhW0MCFQiccpz2PJ8zPDzFb/Yj/yB3oc=";
+    };
+  };
+
+  LIBCLANG_PATH = "${llvmPackages_16.libclang.lib}/lib";
 
   # needed for internal protobuf c wrapper library
   PROTOC = "${protobuf}/bin/protoc";
@@ -34,7 +41,7 @@ rustPlatform.buildRustPackage rec {
     pkg-config
 
     clang
-    llvmPackages.libclang
+    llvmPackages_16.libclang
 
     rustfmt
     protobuf
