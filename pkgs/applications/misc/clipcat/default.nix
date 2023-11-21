@@ -13,21 +13,19 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "clipcat";
-  version = "unstable-2023-11-20";
+  version = "0.5.1";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
-    rev = "73d7660298f357e3b41e8fa1beae0aa81a8682ab";
-    hash = "sha256-i0kj3OZVUGJqdO3JTgZj0/yNH9EpLT/wsmY1kWAZ3s4=";
+    rev = "v${version}";
+    hash = "sha256-dV17xP6xG6Nyi6m0CdH8Mk4Y0giDtsv/QiM23jF58q0=";
   };
-
-  cargoHash = "sha256-a4IfiTAj3FBwaXcWTjRySxXx/o7KbVIUM0r89Oigkdg=";
 
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "caracal-0.1.0" = "sha256-6B6H1jB1MbFQhW0MCFQiccpz2PJ8zPDzFb/Yj/yB3oc=";
+      "x11-clipboard-0.6.0" = "sha256-dKx2kda5JC79juksP2qiO9yfeFCWymcYhGPSygQ0mrg=";
     };
   };
 
