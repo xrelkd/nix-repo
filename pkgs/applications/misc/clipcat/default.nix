@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
   # cargo-nextest help us retry the failed test cases
   NEXTEST_RETRIES = 5;
 
-  # Some test cases need to interactive with X11, we use xvfb-run here
+  # Some test cases interacts with X11, we use xvfb-run here
   checkPhase = ''
     xvfb-run --auto-servernum cargo nextest run --release --workspace --no-fail-fast --no-capture
   '';
