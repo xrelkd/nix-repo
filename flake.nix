@@ -40,6 +40,7 @@
         valo = import ./modules/programs/valo.nix;
       };
       services.aria2-user = import ./modules/services/networking/aria2-user.nix;
+      services.clipcat = import ./modules/services/misc/clipcat.nix;
     };
   });
 }
