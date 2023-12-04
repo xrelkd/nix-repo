@@ -15,7 +15,7 @@ in
     package = mkOption {
       type = types.package;
       default = pkgs.wired-notify;
-      description = "Package providing wired.";
+      description = "wired-notify derivation to use.";
     };
 
     config = mkOption {
