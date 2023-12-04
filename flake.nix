@@ -41,6 +41,7 @@
       };
       services.aria2-user = import ./modules/services/networking/aria2-user.nix;
       services.clipcat = import ./modules/services/misc/clipcat.nix;
+      services.wired-notify = import ./modules/services/misc/wired-notify.nix;
     };
   });
 }

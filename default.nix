@@ -34,6 +34,7 @@ with pkgs; {
   valo = callPackage ./pkgs/os-specific/linux/valo { };
   xenon = callPackage ./pkgs/tools/misc/xenon { };
 
+  wired-notify = callPackage ./pkgs/applications/misc/wired-notify { };
   cargo-member = callPackage ./pkgs/development/tools/rust/cargo-member { };
 
   ssh-tools =
