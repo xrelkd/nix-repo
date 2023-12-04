@@ -18,19 +18,28 @@ in
       type = types.package;
       default = pkgs.clipcat;
       defaultText = literalExpression "pkgs.clipcat";
-      description = lib.mdDoc "clipcat derivation to use.";
+      description = "clipcat derivation to use.";
     };
   };
 
-  config = mkIf cfg.enable {
-    systemd.user.services.clipcat = {
-      enable = true;
-      description = "clipcat daemon";
-      wantedBy = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig.ExecStart = "${cfg.package}/bin/clipcatd --no-daemon";
-    };
+  config = lib.mkMerge [
+    (lib.mkIf cfg.enable {
+      home.packages = [ cfg.package ];
+      systemd.user.services."clipcat" = {
+        Unit = {
+          Description = "Clipcat Daemon";
+          PartOf = "graphical-session.target";
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${cfg.package}/bin/clipcatd --no-daemon --replace";
+          Restart = "on-failure";
+        };
+        Install = {
+          WantedBy = [ "graphical-session.target" ];
+        };
+      };
+    })
+  ];
 
-    environment.systemPackages = [ cfg.package ];
-  };
 }
