@@ -37,6 +37,8 @@ drvs=(
 
     ssh-tools
 
+    wired-notify
+
     firefox-hidpi
 
     desktop-wallpapers.fedora-28.zen

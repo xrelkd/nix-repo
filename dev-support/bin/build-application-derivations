@@ -24,6 +24,8 @@ drvs=(
 
     ssh-tools
 
+    wired-notify
+
     firefox-hidpi
 )
 
