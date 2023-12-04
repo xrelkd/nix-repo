@@ -36,12 +36,16 @@
 
     nixosModules = {
       programs = {
-        slock = import ./modules/programs/slock.nix;
-        valo = import ./modules/programs/valo.nix;
+        slock = import ./nixos/modules/programs/slock.nix;
+        valo = import ./nixos/modules/programs/valo.nix;
       };
-      services.aria2-user = import ./modules/services/networking/aria2-user.nix;
-      services.clipcat = import ./modules/services/misc/clipcat.nix;
-      services.wired-notify = import ./modules/services/misc/wired-notify.nix;
     };
+
+    homeModules = {
+      services.aria2 = import ./home/modules/services/networking/aria2.nix;
+      services.clipcat = import ./home/modules/services/misc/clipcat.nix;
+      services.wired-notify = import ./home/modules/services/misc/wired-notify.nix;
+    };
+
   });
 }

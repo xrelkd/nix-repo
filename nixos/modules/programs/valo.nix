@@ -24,12 +24,11 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.valo ];
-    security.wrappers.valo =
-      {
-        setuid = true;
-        owner = "root";
-        group = "root";
-        source = "${pkgs.valo}/bin/valo";
-      };
+    security.wrappers.valo = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${pkgs.valo}/bin/valo";
+    };
   };
 }

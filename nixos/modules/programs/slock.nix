@@ -20,12 +20,11 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.slock ];
-    security.wrappers.slock =
-      {
-        setuid = true;
-        owner = "root";
-        group = "root";
-        source = "${pkgs.slock}/bin/slock";
-      };
+    security.wrappers.slock = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${pkgs.slock}/bin/slock";
+    };
   };
 }
