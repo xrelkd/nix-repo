@@ -62,4 +62,6 @@ with pkgs; {
   wqy-microhei = callPackage ./pkgs/data/fonts/wqy-microhei { };
 
   firefox-hidpi = callPackage ./pkgs/applications/networking/browsers/firefox-hidpi { };
+
+  archlinux-keyring = callPackage ./pkgs/tools/package-management/archlinux-keyring { };
 }
