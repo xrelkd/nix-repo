@@ -7,16 +7,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "caracal";
-  version = "unstable-2023-12-25";
+  version = "unstable-2023-12-26";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
-    rev = "3929bd298b3b182f07405bb64bf3c8183f361750";
-    hash = "sha256-Ji37X2vZerPjUFeQJCYs9midQEQp5wjSSFa5w51EsJo=";
+    rev = "64c2430e36d5b146d399f6fd59349132737f314e";
+    hash = "sha256-pBjiOhgLdQeItCJkATuPH9oYESrO5Hw9Qh/lcavZ368=";
   };
 
-  cargoHash = "sha256-HH4D64n2P/zpdcNgSL5da45zj9JXSmw66ZhNXgpKcbY=";
+  cargoHash = "sha256-0cS6rKoO548IJvwCxruh0pfhk213ypITXulnNN8w3Uc=";
 
   nativeBuildInputs = [
     protobuf
