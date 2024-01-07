@@ -7,16 +7,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "caracal";
-  version = "0.2.0";
+  version = "unstable-2024-01-07";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
-    rev = "v${version}";
-    hash = "sha256-xBf7ibRSbouEbDRJpBp0TeCbPZLkZIZISR/5n2oqsb0=";
+    rev = "3690cf07a8f76368bd49b8740c48d7a72899f7a4";
+    hash = "sha256-Co81MSP2bMYUaYCEVN8tKg447ONjitF3YFN4ESmCEiw=";
   };
 
-  cargoHash = "sha256-k7lMAt8VCWranvn029TnMyIARLsJS9Yx9zUzBGWpDH4=";
+  cargoHash = "sha256-AKyeTpy90BFtsfIxRvCuR1Cj0s6v3SomxsQJ+ZlvADY=";
 
   nativeBuildInputs = [
     protobuf
@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
   useNextest = true;
 
   postInstall = ''
-    for cmd in caracal caracal-daemon; do
+    for cmd in caracal caracal-daemon caracal-tui; do
       installShellCompletion --cmd $cmd \
         --bash <($out/bin/$cmd completions bash) \
         --fish <($out/bin/$cmd completions fish) \
