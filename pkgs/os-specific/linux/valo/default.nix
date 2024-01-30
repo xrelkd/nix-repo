@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "valo";
-  version = "0.2.2";
+  version = "0.3.0";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-ScvyfcM09B+l1QRIqA85ETdlrN3bNuV4arJIziDUmdg=";
+    hash = "sha256-E2M9KB3keL99eyBevL+WDQLSwqgpn++cqjMrc4WZ7XE=";
   };
 
-  cargoHash = "sha256-Y9o8I53DCSWXAslaXLNSg7aWOYiob+JRDKC8ZqNrkgQ=";
+  cargoHash = "sha256-fn6CIQmUn05LXqt0PtJmrbqcBmO+THImiZAlPvYQEVo=";
 
   nativeBuildInputs = [ installShellFiles ];
 
@@ -27,9 +27,10 @@ rustPlatform.buildRustPackage rec {
   '';
 
   meta = with lib; {
-    description =
-      "A Program to Control Backlights (and other Hardware Lights) in GNU/Linux";
-    license = licenses.mit;
-    platforms = platforms.all;
+    description = "Tool to control backlights (and other hardware lights) in GNU/Linux";
+    homepage = "https://github.com/xrelkd/valo";
+    license = licenses.gpl3Only;
+    maintainers = with maintainers; [ xrelkd ];
+    mainProgram = "valo";
   };
 }
