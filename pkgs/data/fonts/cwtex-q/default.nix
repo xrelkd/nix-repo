@@ -27,7 +27,7 @@ stdenvNoCC.mkDerivation rec {
   meta = with lib; {
     description = "TrueType Font from cwTeX";
     homepage = "https://github.com/l10n-tw/cwtex-q-fonts";
-    license = lib.licenses.gpl2;
-    platforms = lib.platforms.all;
+    license = licenses.gpl2;
+    platforms = platforms.all;
   };
 }
