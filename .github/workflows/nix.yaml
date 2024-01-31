@@ -3,8 +3,8 @@ name: "Nix Packages"
 on:
   push:
     branches:
-      - ci/*
       - main
+      - ci/*
   pull_request:
     paths:
       - default.nix
@@ -24,7 +24,10 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v9
 
-      - uses: DeterminateSystems/magic-nix-cache-action@v2
+      - uses: cachix/cachix-action@v14
+        with:
+          name: "${{ secrets.CACHIX_NAME }}"
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Build Nix Packages
         run: |
@@ -39,7 +42,10 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v9
 
-      - uses: DeterminateSystems/magic-nix-cache-action@v2
+      - uses: cachix/cachix-action@v14
+        with:
+          name: "${{ secrets.CACHIX_NAME }}"
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Build Nix Packages
         run: |
