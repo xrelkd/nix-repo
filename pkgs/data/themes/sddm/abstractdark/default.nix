@@ -3,7 +3,7 @@
 , fetchFromGitHub
 }:
 
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "sddm-theme-abstractdark";
   version = "0.0.1";
 

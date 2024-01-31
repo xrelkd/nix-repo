@@ -27,7 +27,7 @@ stdenvNoCC.mkDerivation rec {
   meta = with lib; {
     description = "A (mainly) Chinese Unicode font";
     homepage = "http://wenq.org";
-    license = lib.licenses.asl20;
-    platforms = lib.platforms.all;
+    license = licenses.asl20;
+    platforms = platforms.all;
   };
 }

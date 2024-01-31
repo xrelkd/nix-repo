@@ -21,7 +21,7 @@ fetchzip {
   meta = with lib; {
     description = "Chinese Standard Interchange Code";
     homepage = "https://www.cns11643.gov.tw";
-    license = lib.licenses.free;
-    platforms = lib.platforms.all;
+    license = licenses.free;
+    platforms = platforms.all;
   };
 }
