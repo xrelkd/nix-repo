@@ -24,7 +24,7 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v9
 
-      - uses: DeterminateSystems/magic-nix-cache-action@v1
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: Build Nix Packages
         run: |
@@ -39,7 +39,7 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v9
 
-      - uses: DeterminateSystems/magic-nix-cache-action@v1
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: Build Nix Packages
         run: |
