@@ -22,8 +22,6 @@ drvs=(
     valo
     xenon
 
-    ssh-tools
-
     wired-notify
 
     firefox-hidpi

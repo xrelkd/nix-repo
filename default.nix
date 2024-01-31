@@ -38,9 +38,6 @@ with pkgs; {
 
   wired-notify = callPackage ./pkgs/applications/misc/wired-notify { };
 
-  ssh-tools =
-    callPackage ./pkgs/tools/networking/ssh-tools { };
-
   desktop-wallpapers = {
     inherit
       (callPackages ./pkgs/data/desktop-wallpapers { }) fedora-28;
