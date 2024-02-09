@@ -8,16 +8,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "catix";
-  version = "0.1.0";
+  version = "0.1.1";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = "catix";
     rev = "v${version}";
-    hash = "sha256-fOw+7Wjt0SajRgvhQ1MbWl+jB14quDxX0udmEhA6aP4=";
+    hash = "sha256-a/MlCzZX8Pd5V98P66pb7k9b9I/nAlOeNBm0NpaPqIM=";
   };
 
-  cargoHash = "sha256-2r5kuaRSmkNku0u9K3MMOXYOv/1IJY8pVb2fWQKBG0s=";
+  cargoHash = "sha256-ls+4ax4Dkq8Opfy9MQFYoqBLwcFyQXd6eyjpe5Q9FFU=";
 
   nativeBuildInputs = [
     installShellFiles
