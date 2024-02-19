@@ -11,16 +11,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "wired-notify";
-  version = "0.10.3";
+  version = "0.10.5";
 
   src = fetchFromGitHub {
     owner = "Toqozz";
     repo = "wired-notify";
     rev = version;
-    hash = "sha256-zH72MzpKkKITvR5ecM6oAM8tHX9z8qm+E9uZJKnYzq8=";
+    hash = "sha256-X1yPHfYn0Rt7glgpC3dlG3spaAg5W0cg626oc8bv/zg=";
   };
 
-  cargoHash = "sha256-9HXyQbt/k5wrC/q/gI3xHUwzrbaGuLjNZnS1781m4gM=";
+  cargoHash = "sha256-TUAJy1MglJ519MkRlCvftBcDRZn5sckgh9RkLJhso8o=";
 
   # Requires dbus cairo and pango
   # pkgconfig, glib and xorg are required for x11-crate
