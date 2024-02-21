@@ -13,6 +13,7 @@ drvs=(
     polybar
 
     axdot
+    caracal
     clipcat
     eriksync
     gdv-dl
