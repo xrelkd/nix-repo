@@ -82,11 +82,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1705423853,
-        "narHash": "sha256-7+T6Q7pAlhgqw5o/4SvHm4YKKUiGJmkasAr0Jw9CZio=",
+        "lastModified": 1710184944,
+        "narHash": "sha256-aVsbKeBbldOGbB/Ch+ZAdxUeNqP9QUrUhh1Slc8aBBI=",
         "owner": "nix-community",
         "repo": "nixpkgs-lint",
-        "rev": "05410fd37fcac0ad3824172dc9b549bae04da963",
+        "rev": "e28bd59e5bd84912db7f3af220b5eb4410dd359d",
         "type": "github"
       },
       "original": {
