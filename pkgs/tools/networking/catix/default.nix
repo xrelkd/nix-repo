@@ -8,23 +8,24 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "catix";
-  version = "0.1.1";
+  version = "0.1.2";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = "catix";
     rev = "v${version}";
-    hash = "sha256-a/MlCzZX8Pd5V98P66pb7k9b9I/nAlOeNBm0NpaPqIM=";
+    hash = "sha256-6anbFxQwpKrwJ8yHg0y7eZqSE5XApHfJ9Caekym+tOE=";
   };
 
-  cargoHash = "sha256-ls+4ax4Dkq8Opfy9MQFYoqBLwcFyQXd6eyjpe5Q9FFU=";
+  cargoHash = "sha256-FrRBaNnkpt35u/puJVc6CDEMjeyaeYYjDHzHCsuNDyg=";
 
   nativeBuildInputs = [
     installShellFiles
   ];
 
-  buildInputs = [ ] ++ lib.optionals stdenv.isDarwin [
+  buildInputs = lib.optionals stdenv.isDarwin [
     darwin.apple_sdk.frameworks.Security
+    darwin.apple_sdk.frameworks.SystemConfiguration
   ];
 
   useNextest = true;
