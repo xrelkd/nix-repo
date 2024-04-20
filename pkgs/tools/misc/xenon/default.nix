@@ -1,23 +1,34 @@
 { lib
+, stdenv
 , fetchFromGitHub
 , rustPlatform
 , installShellFiles
+, darwin
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "xenon";
-  version = "0.6.1";
+  version = "0.6.2";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-B9CBCv8ciYUy8qLn8ZofAeeba9EtpBRIE3/5f2wFFoE=";
+    hash = "sha256-2u1n8IGYpq7n1jSwpqJI0OBVNVkfSziJHejNzksEJ8U=";
   };
 
-  cargoHash = "sha256-Es8gr7Vi3YqKwD23iMCCs0PjA1IYWhYMTdxPzn06oGs=";
+  cargoHash = "sha256-EGJZe8EGuiWQCI6BW4dYUb+wWvoqz/qO1NwPftiEGl0=";
 
-  nativeBuildInputs = [ installShellFiles ];
+  nativeBuildInputs = [
+    installShellFiles
+  ];
+
+  buildInputs = lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk.frameworks.Security
+    darwin.apple_sdk.frameworks.SystemConfiguration
+  ];
+
+  useNextest = true;
 
   postInstall = ''
     installShellCompletion --cmd xenon \
