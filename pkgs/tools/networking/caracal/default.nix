@@ -1,26 +1,33 @@
 { lib
+, stdenv
 , fetchFromGitHub
 , rustPlatform
 , protobuf
 , installShellFiles
+, darwin
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "caracal";
-  version = "0.3.2";
+  version = "0.3.3";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-BzFC5ASavXej30Rfk8DjIPytULiQLK8o3DK0ra5b+74=";
+    hash = "sha256-/2P3X/AYE4BPK6m/a8kE7PVuzGHa6sHzNDkAnEXmCjs=";
   };
 
-  cargoHash = "sha256-7j2cUzKlDlGYwzCWkASPlrNEi8Sfb4gDSWHWPqlldcI=";
+  cargoHash = "sha256-8Eqixyjy9Z9Ic9ovPv8/wnvtJuEYgnLqMWupvVWPs8M=";
 
   nativeBuildInputs = [
     protobuf
     installShellFiles
+  ];
+
+  buildInputs = lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk.frameworks.Security
+    darwin.apple_sdk.frameworks.SystemConfiguration
   ];
 
   useNextest = true;
@@ -38,7 +45,6 @@ rustPlatform.buildRustPackage rec {
     description = "File downloader written in Rust Programming Language";
     homepage = "https://github.com/xrelkd/caracal";
     license = licenses.gpl3Only;
-    platforms = platforms.linux;
     maintainers = with maintainers; [ xrelkd ];
     mainProgram = "caracal";
   };
