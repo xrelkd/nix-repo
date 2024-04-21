@@ -1,23 +1,34 @@
 { lib
+, stdenv
 , fetchFromGitHub
-, installShellFiles
 , rustPlatform
+, installShellFiles
+, darwin
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "tunka";
-  version = "0.4.1";
+  version = "0.4.2";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-W0VHwB9oQJuD4NlHGhJN7Xv3LqncLDgnk8Epr7yiwlE=";
+    hash = "sha256-MEccmM6ryTOEzqEtshF2h/1f4LITFjeHFnja709MhBI=";
   };
 
-  cargoHash = "sha256-/D5gz0pr5gmgUghcTb+hCQYYlL9+iE0M7sLDzj2gRBk=";
+  cargoHash = "sha256-lhGETZlNwwBJXTAP/fURYne3Eb6Yq636HERZ0729w0g=";
 
-  nativeBuildInputs = [ installShellFiles ];
+  nativeBuildInputs = [
+    installShellFiles
+  ];
+
+  buildInputs = lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk.frameworks.Security
+    darwin.apple_sdk.frameworks.SystemConfiguration
+  ];
+
+  useNextest = true;
 
   postInstall = ''
     installShellCompletion --cmd tunka \
