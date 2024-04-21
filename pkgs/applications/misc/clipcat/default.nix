@@ -1,42 +1,42 @@
 { lib
+, stdenv
 , fetchFromGitHub
 , rustPlatform
 , protobuf
-, xvfb-run
 , installShellFiles
+, darwin
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "clipcat";
-  version = "0.16.6";
+  version = "0.17.0";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-FSgBTQGl8LSLdv+SOAgQWLWiqFY+PRQBFYYdbmCttcY=";
+    hash = "sha256-e95h8YBVLcy9vubdJpfmeystT2Qw0Y8kap9IbTJW+s8=";
   };
 
-  cargoHash = "sha256-TrzHmWUDAe4gbwm+VoTOuC50CWWnFsF99zscM85ammo=";
+  cargoHash = "sha256-+73vnGcdCDRMrav/Pi4Z37IlbArJ/SlYishz9KhF4x0=";
+
+  buildInputs = lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk.frameworks.Cocoa
+    darwin.apple_sdk.frameworks.Security
+    darwin.apple_sdk.frameworks.SystemConfiguration
+  ];
 
   nativeBuildInputs = [
     protobuf
+
     installShellFiles
   ];
 
-  nativeCheckInputs = [
-    xvfb-run
+  checkFlags = [
+    # Some test cases interact with X11, skip them
+    "--skip=test_x11_clipboard"
+    "--skip=test_x11_primary"
   ];
-
-  useNextest = true;
-
-  # cargo-nextest help us retry the failed test cases
-  NEXTEST_RETRIES = 5;
-
-  # Some test cases interacts with X11, we use xvfb-run here
-  checkPhase = ''
-    xvfb-run --auto-servernum cargo nextest run --release --workspace --no-fail-fast --no-capture
-  '';
 
   postInstall = ''
     for cmd in clipcatd clipcatctl clipcat-menu clipcat-notify; do
@@ -51,7 +51,7 @@ rustPlatform.buildRustPackage rec {
     description = "Clipboard Manager written in Rust Programming Language";
     homepage = "https://github.com/xrelkd/clipcat";
     license = licenses.gpl3Only;
-    platforms = platforms.linux;
+    platforms = platforms.linux ++ platforms.darwin;
     maintainers = with maintainers; [ xrelkd ];
     mainProgram = "clipcatd";
   };
