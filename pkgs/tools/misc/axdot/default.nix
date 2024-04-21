@@ -1,23 +1,32 @@
 { lib
+, stdenv
 , fetchFromGitHub
 , rustPlatform
 , installShellFiles
+, darwin
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "axdot";
-  version = "0.2.1";
+  version = "0.3.0";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-mmUR5d3xILppl4ZeQRpZLfN1/WbXjNQKKtueVZY53I4=";
+    hash = "sha256-f2hqucUC04QfKXaig2hk6L7TcDVZ6OjBU4G1b4Fq2nM=";
   };
 
-  cargoHash = "sha256-UuzWP0N+Myi64lK2dB7QXB2y0HA7IZP/6GgqTcSPPSE=";
+  cargoHash = "sha256-ZKkfjBjIZe0pR67dDlKlcJNU+a7tKHcEQpIjwpYClTs=";
 
   nativeBuildInputs = [ installShellFiles ];
+
+  buildInputs = lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk.frameworks.Security
+    darwin.apple_sdk.frameworks.SystemConfiguration
+  ];
+
+  useNextest = true;
 
   postInstall = ''
     installShellCompletion --cmd axdot \
