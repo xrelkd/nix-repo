@@ -38,6 +38,8 @@ with pkgs; {
 
   wired-notify = callPackage ./pkgs/applications/misc/wired-notify { };
 
+  choose-gui = callPackage ./pkgs/tools/misc/choose-gui { };
+
   desktop-wallpapers = {
     inherit
       (callPackages ./pkgs/data/desktop-wallpapers { }) fedora-28;
