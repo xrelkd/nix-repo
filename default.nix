@@ -39,6 +39,7 @@ with pkgs; {
   wired-notify = callPackage ./pkgs/applications/misc/wired-notify { };
 
   choose-gui = callPackage ./pkgs/tools/misc/choose-gui { };
+  im-select = callPackage ./pkgs/tools/misc/im-select { };
 
   desktop-wallpapers = {
     inherit
