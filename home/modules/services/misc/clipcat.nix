@@ -32,6 +32,7 @@ in
         };
         Service = {
           Type = "simple";
+          ExecStartPre = "${pkgs.coreutils}/bin/rm -rf %t/clipcat/grpc.sock";
           ExecStart = "${cfg.package}/bin/clipcatd --no-daemon --replace";
           Restart = "on-failure";
         };
