@@ -9,16 +9,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "caracal";
-  version = "0.3.5";
+  version = "0.3.6";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-8xQ+ppEtz+WU3Y+yyarnoV3ZkF1JMp7t9EYDTlUBJZ4=";
+    hash = "sha256-S/gCC9IV8wSHBfSoS+C3+jrOVt8GnAZ9zH+M6hTvJqk=";
   };
 
-  cargoHash = "sha256-0JaQOtv0+ohLEt+ZmaQluaJ6GYxG6SLh6tpEDPSFngU=";
+  cargoHash = "sha256-2D8S7VMs0K5GZtrbliTTWX7IFxXeZ0+iixx4w7hqFF8=";
 
   nativeBuildInputs = [
     protobuf
