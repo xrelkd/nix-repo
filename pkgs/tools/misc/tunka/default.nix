@@ -8,16 +8,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "tunka";
-  version = "0.4.4";
+  version = "0.4.5";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-rcPia5YcZc6WNzF3Mj+/Vuez0cHpizK13p5J0oRYfek=";
+    hash = "sha256-dOoqg+DKFM7JzB3vHnzGyLRGeCnD6ZDfIQ9grJfqgzE=";
   };
 
-  cargoHash = "sha256-kIbf/FuAL42cv16uk+9CK2ltv73YMpWxAzVUpx+uP1g=";
+  cargoHash = "sha256-nepU0RKrj6zzG1TZrzeZHy3qYoU5Nu4iUdRGukZ+PFE=";
 
   nativeBuildInputs = [
     installShellFiles
