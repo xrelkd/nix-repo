@@ -14,6 +14,7 @@ drvs=(
 
     axdot
     caracal
+    catix
     clipcat
     eriksync
     gdv-dl
@@ -24,6 +25,7 @@ drvs=(
     xenon
 
     wired-notify
+    nvtop
 
     firefox-hidpi
 )
