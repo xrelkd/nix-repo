@@ -1,4 +1,9 @@
-{ lib, stdenvNoCC, fetchFromGitHub, dpkg }:
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  dpkg,
+}:
 
 stdenvNoCC.mkDerivation rec {
   pname = "cwtex-q";

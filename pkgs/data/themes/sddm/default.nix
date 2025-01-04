@@ -3,4 +3,3 @@
 {
   abstractdark = callPackage ./abstractdark { };
 }
-

@@ -1,8 +1,10 @@
-{ system ? builtins.currentSystem
-, pkgs ? import <nixpkgs> { inherit system; }
+{
+  system ? builtins.currentSystem,
+  pkgs ? import <nixpkgs> { inherit system; },
 }:
 
-with pkgs; {
+with pkgs;
+{
   mpv = mpv.override {
     scripts = [ mpvScripts.vr-reversal ];
   };
@@ -24,6 +26,8 @@ with pkgs; {
     pulseSupport = true;
   };
 
+  nvtop = callPackage ./pkgs/os-specific/linux/nvtop { };
+
   axdot = callPackage ./pkgs/tools/misc/axdot { };
   caracal = callPackage ./pkgs/tools/networking/caracal { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
@@ -42,8 +46,9 @@ with pkgs; {
   im-select = callPackage ./pkgs/tools/misc/im-select { };
 
   desktop-wallpapers = {
-    inherit
-      (callPackages ./pkgs/data/desktop-wallpapers { }) fedora-28;
+    inherit (callPackages ./pkgs/data/desktop-wallpapers { })
+      fedora-28
+      ;
   };
 
   sddm-themes = {
@@ -54,7 +59,8 @@ with pkgs; {
     inherit (callPackages ./pkgs/data/themes/fcitx5 { })
       material-color
       nord
-      thep0y;
+      thep0y
+      ;
   };
 
   cns11643-fonts = callPackage ./pkgs/data/fonts/cns11643 { };

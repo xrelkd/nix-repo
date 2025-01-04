@@ -1,7 +1,8 @@
-{ lib
-, rustPlatform
-, fetchFromGitHub
-, installShellFiles
+{
+  lib,
+  rustPlatform,
+  fetchFromGitHub,
+  installShellFiles,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -27,8 +28,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   meta = with lib; {
-    description =
-      "A utility that allows you to synchronize your data between multiple machines via rsync";
+    description = "A utility that allows you to synchronize your data between multiple machines via rsync";
     license = licenses.mit;
     maintainers = with maintainers; [ user ];
     platforms = platforms.all;

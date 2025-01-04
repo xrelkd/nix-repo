@@ -1,12 +1,13 @@
-{ lib
-, rustPlatform
-, fetchFromGitHub
-, pkg-config
-, cairo
-, dbus
-, dlib
-, pango
-, xorg
+{
+  lib,
+  rustPlatform,
+  fetchFromGitHub,
+  pkg-config,
+  cairo,
+  dbus,
+  dlib,
+  pango,
+  xorg,
 }:
 
 rustPlatform.buildRustPackage rec {

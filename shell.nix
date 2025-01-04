@@ -1,8 +1,9 @@
-{ system ? builtins.currentSystem
-, pkgs ? import <nixpkgs> { inherit system; }
+{
+  system ? builtins.currentSystem,
+  pkgs ? import <nixpkgs> { inherit system; },
 }:
 
-pkgs.mkShell rec {
+pkgs.mkShell {
   name = "dev-shell";
 
   buildInputs = with pkgs; [
@@ -10,10 +11,11 @@ pkgs.mkShell rec {
 
     nix-update
 
-    treefmt
-    nixpkgs-fmt
-    shfmt
+    nixfmt-rfc-style
     nodePackages.prettier
+    shfmt
+    treefmt
+    taplo
 
     nixpkgs-lint
   ];

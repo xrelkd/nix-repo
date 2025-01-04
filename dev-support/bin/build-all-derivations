@@ -27,6 +27,7 @@ drvs=(
 
     axdot
     caracal
+    catix
     clipcat
     eriksync
     gdv-dl
@@ -37,6 +38,8 @@ drvs=(
     xenon
 
     wired-notify
+
+    nvtop
 
     firefox-hidpi
 
@@ -52,6 +55,7 @@ drvs=(
     cwtex-q-fonts
     ionicons
     wqy-microhei
+
 )
 
 for drv in "${drvs[@]}"; do
