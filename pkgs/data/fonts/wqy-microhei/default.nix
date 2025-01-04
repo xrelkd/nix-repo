@@ -1,4 +1,9 @@
-{ lib, stdenvNoCC, fetchurl, dpkg }:
+{
+  lib,
+  stdenvNoCC,
+  fetchurl,
+  dpkg,
+}:
 
 stdenvNoCC.mkDerivation rec {
   pname = "wqy-microhei";

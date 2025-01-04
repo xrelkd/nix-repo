@@ -1,5 +1,6 @@
-{ lib
-, fetchFromGitHub
+{
+  lib,
+  fetchFromGitHub,
 }:
 
 let
@@ -19,7 +20,6 @@ fetchFromGitHub rec {
     cd $out
     install -Dm644 docs/fonts/ionicons.ttf -t $out/share/fonts/truetype/
   '';
-
 
   meta = with lib; {
     homepage = "https://ionicons.com";

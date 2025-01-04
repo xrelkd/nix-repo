@@ -1,6 +1,7 @@
-{ lib
-, stdenv
-, fetchurl
+{
+  lib,
+  stdenv,
+  fetchurl,
 }:
 
 stdenv.mkDerivation rec {
@@ -36,4 +37,3 @@ stdenv.mkDerivation rec {
     mainProgram = "im-select";
   };
 }
-

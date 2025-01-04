@@ -1,4 +1,8 @@
-{ stdenvNoCC, makeWrapper, firefox }:
+{
+  stdenvNoCC,
+  makeWrapper,
+  firefox,
+}:
 
 stdenvNoCC.mkDerivation {
   pname = "firefox-hidpi";
