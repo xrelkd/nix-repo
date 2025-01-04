@@ -1,6 +1,7 @@
 [formatter.nix]
-command = "nixpkgs-fmt"
+command = "nixfmt"
 includes = ["*.nix"]
+
 
 [formatter.lua]
 command = "stylua"
@@ -22,17 +23,19 @@ includes = [
     "*.yaml",
 ]
 
+[formatter.toml]
+command = "taplo"
+options = ["format", "$@"]
+includes = ["*.toml"]
+
+
 [formatter.shell]
 command = "sh"
-options = [
-    "-eucx",
-    """
+options = ["-eucx", """
 # Perform static analysis tool
 shellcheck --external-sources --source-path=SCRIPTDIR "$@"
 
 # Run formatter
 shfmt --write --simplify --case-indent --indent 4 "$@"
-    """,
-    "--"
-]
+    """, "--"]
 includes = ["*.sh"]
