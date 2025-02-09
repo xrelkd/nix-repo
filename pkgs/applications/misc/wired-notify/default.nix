@@ -21,6 +21,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-AWIV/+vVwDZECZ4lFMSFyuyUKJc/gb72PiBJv6lbhnc=";
   };
 
+  useFetchCargoVendor = true;
   cargoHash = "sha256-zTTXVjXRQ6zgm1+nLkRitm2WlvJZDDd9WF1dAAGseYo=";
 
   # Requires dbus cairo and pango
