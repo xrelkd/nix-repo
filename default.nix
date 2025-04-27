@@ -32,7 +32,6 @@ with pkgs;
   caracal = callPackage ./pkgs/tools/networking/caracal { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   catix = callPackage ./pkgs/tools/networking/catix { };
-  eriksync = callPackage ./pkgs/tools/misc/eriksync { };
   gdv-dl = callPackage ./pkgs/tools/misc/gdv-dl { };
   norden = callPackage ./pkgs/applications/networking/cluster/norden { };
   tunelo = callPackage ./pkgs/tools/networking/tunelo { };
