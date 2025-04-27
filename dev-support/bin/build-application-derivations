@@ -24,7 +24,6 @@ drvs=(
     xenon
 
     wired-notify
-    nvtop
 
     firefox-hidpi
 )

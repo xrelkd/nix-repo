@@ -38,8 +38,6 @@ drvs=(
 
     wired-notify
 
-    nvtop
-
     firefox-hidpi
 
     desktop-wallpapers.fedora-28.zen

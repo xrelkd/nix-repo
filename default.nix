@@ -26,8 +26,6 @@ with pkgs;
     pulseSupport = true;
   };
 
-  nvtop = callPackage ./pkgs/os-specific/linux/nvtop { };
-
   axdot = callPackage ./pkgs/tools/misc/axdot { };
   caracal = callPackage ./pkgs/tools/networking/caracal { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
