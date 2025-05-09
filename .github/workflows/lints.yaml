@@ -54,7 +54,7 @@ jobs:
             --formatters prettier
 
       - name: Run prettier
-        uses: creyD/prettier_action@v4.3
+        uses: creyD/prettier_action@v4.5
         with:
           dry: true
           prettier_options: --check **/*.{js,ts,md,json,yaml}
