@@ -26,7 +26,7 @@ with pkgs;
     pulseSupport = true;
   };
 
-  axdot = callPackage ./pkgs/tools/misc/axdot { };
+  # axdot = callPackage ./pkgs/tools/misc/axdot { };
   caracal = callPackage ./pkgs/tools/networking/caracal { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   catix = callPackage ./pkgs/tools/networking/catix { };
