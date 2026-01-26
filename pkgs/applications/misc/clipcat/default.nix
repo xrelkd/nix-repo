@@ -10,16 +10,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "clipcat";
-  version = "0.21.1";
+  version = "0.22.0";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-MYWkUb9v8hnW6gUTpIcz0+jhlc8y3hZxsEQxRIZVVxI=";
+    hash = "sha256-TbBmCBOwVbAXU8BoIjnHlPtVRXcn5W2cttkj6XQA6Os=";
   };
 
-  cargoHash = "sha256-7ntsq6x/8QFaU6Hl4tk+Rtvc8ttcK9Mp00nlirNlUKY=";
+  cargoHash = "sha256-vD/DVdry+dh65qth97IyUcnGXrbf3+wQv2i0xSdw0nQ=";
 
   buildInputs = lib.optionals stdenv.isDarwin [
     darwin.apple_sdk.frameworks.Cocoa
