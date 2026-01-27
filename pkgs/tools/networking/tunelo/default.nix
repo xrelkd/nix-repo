@@ -9,16 +9,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "tunelo";
-  version = "0.1.7";
+  version = "0.1.10";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-hgyKx0TraOQIpwMiq8j69vsh0/p3q5fJrwyHnjohROY=";
+    hash = "sha256-N9vCv6yOgNveTwJztsCUncu0tx1gj94NcPdJVsby7/A=";
   };
 
-  cargoHash = "sha256-56PBt8CJm5VIp1+inbD7mlCPgiO15/h8DAv+dSayNWM=";
+  cargoHash = "sha256-uxF2hjk0LKEJTIDVqKlYOeUS4Rd0fMrOr770+xx+TX4=";
 
   nativeBuildInputs = [ installShellFiles ];
 
