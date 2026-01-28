@@ -11,7 +11,7 @@ pkgs.mkShell {
 
     nix-update
 
-    nixfmt-rfc-style
+    nixfmt
     nodePackages.prettier
     shfmt
     treefmt
