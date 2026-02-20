@@ -27,6 +27,7 @@ with pkgs;
   };
 
   # axdot = callPackage ./pkgs/tools/misc/axdot { };
+  axon = callPackage ./pkgs/applications/networking/cluster/axon { };
   caracal = callPackage ./pkgs/tools/networking/caracal { };
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   catix = callPackage ./pkgs/tools/networking/catix { };

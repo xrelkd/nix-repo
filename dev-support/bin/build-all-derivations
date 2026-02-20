@@ -26,6 +26,7 @@ drvs=(
     polybar
 
     axdot
+    axon
     caracal
     catix
     clipcat
