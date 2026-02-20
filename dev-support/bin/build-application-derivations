@@ -12,6 +12,7 @@ drvs=(
     slock
     polybar
 
+    axon
     caracal
     catix
     clipcat
