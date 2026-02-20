@@ -25,13 +25,11 @@ drvs=(
     slock
     polybar
 
-    axdot
     axon
     caracal
     catix
     clipcat
     gdv-dl
-    norden
     tunelo
     tunka
     valo
