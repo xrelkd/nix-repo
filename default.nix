@@ -32,7 +32,6 @@ with pkgs;
   clipcat = callPackage ./pkgs/applications/misc/clipcat { };
   catix = callPackage ./pkgs/tools/networking/catix { };
   gdv-dl = callPackage ./pkgs/tools/misc/gdv-dl { };
-  norden = callPackage ./pkgs/applications/networking/cluster/norden { };
   tunelo = callPackage ./pkgs/tools/networking/tunelo { };
   tunka = callPackage ./pkgs/tools/misc/tunka { };
   valo = callPackage ./pkgs/os-specific/linux/valo { };
