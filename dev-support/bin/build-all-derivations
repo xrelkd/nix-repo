@@ -41,9 +41,9 @@ drvs=(
 
     wallpapers-fedora-28-zen
 
-    fcitx5-themes.material-color
-    fcitx5-themes.nord
-    fcitx5-themes.thep0y
+    fcitx5-themes-material-color
+    fcitx5-themes-nord
+    fcitx5-themes-thep0y
 
     cns11643-fonts
     cwtex-q-fonts
