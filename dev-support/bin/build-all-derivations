@@ -41,8 +41,6 @@ drvs=(
 
     wallpapers-fedora-28-zen
 
-    sddm-themes.abstractdark
-
     fcitx5-themes.material-color
     fcitx5-themes.nord
     fcitx5-themes.thep0y
