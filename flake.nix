@@ -57,10 +57,8 @@
         overlays.default = final: prev: import ./default.nix { pkgs = prev; };
 
         nixosModules = {
-          programs = {
-            slock = import ./nixos/modules/programs/slock.nix;
-            valo = import ./nixos/modules/programs/valo.nix;
-          };
+          slock = import ./nixos/modules/programs/slock.nix;
+          valo = import ./nixos/modules/programs/valo.nix;
         };
 
         homeModules = {
