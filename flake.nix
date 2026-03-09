@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     nixpkgs-lint = {
       url = "github:nix-community/nixpkgs-lint";
@@ -13,25 +13,37 @@
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
-      flake-utils,
+      flake-parts,
       nixpkgs-lint,
     }:
-    (
-      flake-utils.lib.eachDefaultSystem (
-        system:
-        let
-          pkgs = import nixpkgs {
+    flake-parts.lib.mkFlake { inherit inputs; } {
+
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      perSystem =
+        {
+          config,
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          _module.args.pkgs = import nixpkgs {
             inherit system;
             overlays = [
               self.overlays.default
               nixpkgs-lint.overlays.default
             ];
           };
-        in
-        {
+
           packages = import ./default.nix {
             pkgs = import nixpkgs { inherit system; };
           };
@@ -39,9 +51,9 @@
           devShells.default = pkgs.callPackage ./shell.nix { };
 
           formatter = pkgs.treefmt;
-        }
-      )
-      // {
+        };
+
+      flake = {
         overlays.default = final: prev: import ./default.nix { pkgs = prev; };
 
         nixosModules = {
@@ -56,7 +68,6 @@
           services.clipcat = import ./home/modules/services/misc/clipcat.nix;
           services.wired-notify = import ./home/modules/services/misc/wired-notify.nix;
         };
-
-      }
-    );
+      };
+    };
 }
