@@ -1,5 +1,0 @@
-{ callPackage }:
-
-{
-  abstractdark = callPackage ./abstractdark { };
-}

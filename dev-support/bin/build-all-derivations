@@ -39,13 +39,11 @@ drvs=(
 
     firefox-hidpi
 
-    desktop-wallpapers.fedora-28.zen
+    wallpapers-fedora-28-zen
 
-    sddm-themes.abstractdark
-
-    fcitx5-themes.material-color
-    fcitx5-themes.nord
-    fcitx5-themes.thep0y
+    fcitx5-themes-material-color
+    fcitx5-themes-nord
+    fcitx5-themes-thep0y
 
     cns11643-fonts
     cwtex-q-fonts

@@ -7,7 +7,11 @@
   dbus,
   dlib,
   pango,
-  xorg,
+  libX11,
+  libXi,
+  libXrandr,
+  libXcursor,
+  libXScrnSaver,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -32,11 +36,11 @@ rustPlatform.buildRustPackage rec {
     dlib
     cairo
     pango
-    xorg.libX11
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXcursor
-    xorg.libXScrnSaver
+    libX11
+    libXi
+    libXrandr
+    libXcursor
+    libXScrnSaver
   ];
 
   # install extra files (i.e. the systemd service)

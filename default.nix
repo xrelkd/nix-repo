@@ -42,23 +42,11 @@ with pkgs;
   choose-gui = callPackage ./pkgs/tools/misc/choose-gui { };
   im-select = callPackage ./pkgs/tools/misc/im-select { };
 
-  desktop-wallpapers = {
-    inherit (callPackages ./pkgs/data/desktop-wallpapers { })
-      fedora-28
-      ;
-  };
+  wallpapers-fedora-28-zen = callPackage ./pkgs/data/wallpapers/fedora-28-zen.nix { };
 
-  sddm-themes = {
-    inherit (callPackage ./pkgs/data/themes/sddm { }) abstractdark;
-  };
-
-  fcitx5-themes = {
-    inherit (callPackages ./pkgs/data/themes/fcitx5 { })
-      material-color
-      nord
-      thep0y
-      ;
-  };
+  fcitx5-themes-material-color = callPackage ./pkgs/data/themes/fcitx5/material-color.nix { };
+  fcitx5-themes-nord = callPackage ./pkgs/data/themes/fcitx5/nord.nix { };
+  fcitx5-themes-thep0y = callPackage ./pkgs/data/themes/fcitx5/thep0y.nix { };
 
   cns11643-fonts = callPackage ./pkgs/data/fonts/cns11643 { };
   cwtex-q-fonts = callPackage ./pkgs/data/fonts/cwtex-q { };
