@@ -4,6 +4,9 @@
 }:
 
 with pkgs;
+let
+  recursive = lib.recurseIntoAttrs;
+in
 {
   mpv = mpv.override {
     scripts = [ mpvScripts.vr-reversal ];
@@ -42,23 +45,7 @@ with pkgs;
   choose-gui = callPackage ./pkgs/tools/misc/choose-gui { };
   im-select = callPackage ./pkgs/tools/misc/im-select { };
 
-  desktop-wallpapers = {
-    inherit (callPackages ./pkgs/data/desktop-wallpapers { })
-      fedora-28
-      ;
-  };
-
-  sddm-themes = {
-    inherit (callPackage ./pkgs/data/themes/sddm { }) abstractdark;
-  };
-
-  fcitx5-themes = {
-    inherit (callPackages ./pkgs/data/themes/fcitx5 { })
-      material-color
-      nord
-      thep0y
-      ;
-  };
+  wallpapers-fedora-28-zen = callPackage ./pkgs/data/wallpapers/fedora-28-zen.nix { };
 
   cns11643-fonts = callPackage ./pkgs/data/fonts/cns11643 { };
   cwtex-q-fonts = callPackage ./pkgs/data/fonts/cwtex-q { };

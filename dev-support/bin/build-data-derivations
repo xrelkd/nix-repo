@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 . "${SCRIPT_DIR}"/../lib/logging
 
 drvs=(
-    desktop-wallpapers.fedora-28.zen
+    wallpapers-fedora-28-zen
 
     sddm-themes.abstractdark
 
