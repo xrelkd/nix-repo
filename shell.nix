@@ -12,7 +12,7 @@ pkgs.mkShell {
     nix-update
 
     nixfmt
-    nodePackages.prettier
+    prettier
     shfmt
     treefmt
     taplo
