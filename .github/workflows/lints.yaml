@@ -22,17 +22,8 @@ jobs:
 
       - uses: DeterminateSystems/magic-nix-cache-action@v13
 
-      - name: Install treefmt
-        run: nix profile install 'nixpkgs#treefmt'
-
-      - name: Install nixfmt
-        run: nix profile install 'nixpkgs#nixfmt-rfc-style'
-
-      - name: Install taplo
-        run: nix profile install 'nixpkgs#taplo'
-
-      - name: Install prettier
-        run: nix profile install 'nixpkgs#nodePackages.prettier'
+      - name: Check format
+        run: nix build .#checks.$(nix eval --raw --impure --expr builtins.currentSystem).check-format
 
       - name: Run shfmt, shellcheck, checkbashisms
         uses: luizm/action-sh-checker@v0.10.0
@@ -41,23 +32,6 @@ jobs:
         with:
           sh_checker_comment: true
           sh_checker_checkbashisms_enable: true
-
-      - name: Run nixfmt-rfc-style
-        run: |
-          treefmt \
-            --fail-on-change \
-            --no-cache \
-            --allow-missing-formatter \
-            --formatters nix \
-            --formatters shell \
-            --formatters toml \
-            --formatters prettier
-
-      - name: Run prettier
-        uses: creyD/prettier_action@v4.6
-        with:
-          dry: true
-          prettier_options: --check **/*.{js,ts,md,json,yaml}
 
   commit:
     name: Lint commit
