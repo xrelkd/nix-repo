@@ -51,6 +51,10 @@
           devShells.default = pkgs.callPackage ./shell.nix { };
 
           formatter = pkgs.treefmt;
+
+          checks = {
+            check-format = pkgs.callPackage ./devshell/format.nix { };
+          };
         };
 
       flake = {
