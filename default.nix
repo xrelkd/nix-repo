@@ -18,14 +18,6 @@ with pkgs;
     conf = builtins.readFile ./program-configs/slock/config.def.h;
   };
 
-  ### polybar configurations
-  polybar = polybar.override {
-    stdenv = clangStdenv;
-    i3Support = true;
-    mpdSupport = true;
-    pulseSupport = true;
-  };
-
   axdot = callPackage ./pkgs/tools/misc/axdot { };
   axon = callPackage ./pkgs/applications/networking/cluster/axon { };
   caracal = callPackage ./pkgs/tools/networking/caracal { };
