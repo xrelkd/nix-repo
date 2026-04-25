@@ -23,7 +23,6 @@ drvs=(
     iperf
 
     slock
-    polybar
 
     axon
     caracal
