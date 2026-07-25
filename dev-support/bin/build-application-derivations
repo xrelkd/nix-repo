@@ -21,8 +21,6 @@ drvs=(
     valo
     xenon
 
-    wired-notify
-
     firefox-hidpi
 )
 

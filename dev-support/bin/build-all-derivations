@@ -34,8 +34,6 @@ drvs=(
     valo
     xenon
 
-    wired-notify
-
     firefox-hidpi
 
     wallpapers-fedora-28-zen
