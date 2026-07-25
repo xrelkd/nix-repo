@@ -41,6 +41,7 @@ with pkgs;
   cns11643-fonts = callPackage ./pkgs/data/fonts/cns11643 { };
   cwtex-q-fonts = callPackage ./pkgs/data/fonts/cwtex-q { };
   ionicons = callPackage ./pkgs/data/fonts/ionicons { };
+  lxgw-neoxihei-code = callPackage ./pkgs/data/fonts/lxgw-neoxihei-code { };
   wqy-microhei = callPackage ./pkgs/data/fonts/wqy-microhei { };
 
   firefox-hidpi = callPackage ./pkgs/applications/networking/browsers/firefox-hidpi { };

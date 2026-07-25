@@ -45,8 +45,8 @@ drvs=(
     cns11643-fonts
     cwtex-q-fonts
     ionicons
+    lxgw-neoxihei-code
     wqy-microhei
-
 )
 
 for drv in "${drvs[@]}"; do
