@@ -29,8 +29,6 @@ with pkgs;
   valo = callPackage ./pkgs/os-specific/linux/valo { };
   xenon = callPackage ./pkgs/tools/misc/xenon { };
 
-  wired-notify = callPackage ./pkgs/applications/misc/wired-notify { };
-
   choose-gui = callPackage ./pkgs/tools/misc/choose-gui { };
   im-select = callPackage ./pkgs/tools/misc/im-select { };
 
