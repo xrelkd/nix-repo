@@ -1,25 +1,27 @@
-{ lib, fetchzip }:
+{
+  lib,
+  stdenvNoCC,
+  fetchurl,
+}:
 
-let
-  pname = "cns11643";
+stdenvNoCC.mkDerivation rec {
+  pname = "cns11643-fonts";
   version = "103.1+20181001";
-in
-fetchzip {
-  name = "${pname}-${version}";
 
-  url = "mirror://ubuntu/pool/multiverse/f/fonts-cns11643/fonts-${pname}_${version}.orig.tar.xz";
+  src = fetchurl {
+    url = "mirror://ubuntu/pool/multiverse/f/fonts-cns11643/fonts-cns11643_${version}.orig.tar.xz";
+    hash = "sha256-7Rauz+ndU5h/tE1l3tc6+sH+s0WrwtAoKxrexQLMW08=";
+  };
 
-  hash = "sha256-Fww98FJ7IoFTLVxdP87BRUwBnt7ftdUiTN4NYUgxPTY=";
-
-  downloadToTemp = true;
-
-  postFetch = ''
-    cd $out
-    install -m444 -Dt $out/share/fonts/truetype *.ttf
+  installPhase = ''
+    runHook preInstall
+    install -d $out/share/fonts/truetype
+    install -m444 *.ttf $out/share/fonts/truetype/
+    runHook postInstall
   '';
 
   meta = with lib; {
-    description = "Chinese Standard Interchange Code";
+    description = "Chinese Standard Interchange Code (TrueType fonts)";
     homepage = "https://www.cns11643.gov.tw";
     license = licenses.free;
     platforms = platforms.all;
