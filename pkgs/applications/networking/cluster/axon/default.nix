@@ -9,16 +9,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "axon";
-  version = "0.1.2";
+  version = "0.1.4";
 
   src = fetchFromGitHub {
     owner = "xrelkd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-4iMCYQ31pqrEsf63LE0Vr9h7T/YzyvzBO90JC83OLbg=";
+    hash = "sha256-UVNXDn4gIqMJAq5qiiI6lTpUBgROJZRZRAeC/VPZsOw=";
   };
 
-  cargoHash = "sha256-mWaLFAEgh4vBdgwtP8p3p74m08fF1pThftZToV+/S28=";
+  cargoHash = "sha256-vdvvjEJHDqMPIAZVo6E6nviEC1rZCOd6Yz6ypsqqcS8=";
 
   buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
     darwin.apple_sdk.frameworks.Cocoa
