@@ -10,7 +10,7 @@ on:
       - default.nix
       - flake.lock
       - flake.nix
-      - shell.nix
+      - devshell/**
       - "pkgs/**"
       - "program-configs/**"
 
@@ -29,9 +29,8 @@ jobs:
           name: "${{ secrets.CACHIX_NAME }}"
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      - name: Build Nix Packages
-        run: |
-          ./dev-support/bin/build-application-derivations
+      - name: Build Application Packages
+        run: nix run .#build-application-derivations
 
   build-data-packages:
     name: Build Data Packages
@@ -47,6 +46,5 @@ jobs:
           name: "${{ secrets.CACHIX_NAME }}"
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      - name: Build Nix Packages
-        run: |
-          ./dev-support/bin/build-data-derivations
+      - name: Build Data Packages
+        run: nix run .#build-data-derivations

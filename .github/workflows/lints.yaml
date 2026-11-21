@@ -25,14 +25,6 @@ jobs:
       - name: Check format
         run: nix build .#checks.$(nix eval --raw --impure --expr builtins.currentSystem).check-format
 
-      - name: Run shfmt, shellcheck, checkbashisms
-        uses: luizm/action-sh-checker@v0.10.0
-        env:
-          SHFMT_OPTS: "--simplify --case-indent --indent 4"
-        with:
-          sh_checker_comment: true
-          sh_checker_checkbashisms_enable: true
-
   commit:
     name: Lint commit
     runs-on: ubuntu-latest
