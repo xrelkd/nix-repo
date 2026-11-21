@@ -30,11 +30,14 @@
 
       perSystem =
         {
-          config,
+          lib,
           pkgs,
           system,
           ...
         }:
+        let
+          devshell = import ./devshell/builders.nix { inherit lib pkgs; };
+        in
         {
           _module.args.pkgs = import nixpkgs {
             inherit system;
@@ -48,12 +51,30 @@
             pkgs = import nixpkgs { inherit system; };
           };
 
-          devShells.default = pkgs.callPackage ./shell.nix { };
+          apps = {
+            build-data-derivations = {
+              type = "app";
+              program = lib.getExe devshell.builders.data;
+            };
+            build-application-derivations = {
+              type = "app";
+              program = lib.getExe devshell.builders.application;
+            };
+            build-all-derivations = {
+              type = "app";
+              program = lib.getExe devshell.builders.all;
+            };
+          };
+
+          devShells.default = import ./devshell {
+            inherit pkgs;
+            inherit (devshell) builderPackages;
+          };
 
           formatter = pkgs.treefmt;
 
           checks = {
-            check-format = pkgs.callPackage ./devshell/format.nix { };
+            check-format = pkgs.callPackage ./devshell/checks/format.nix { };
           };
         };
 

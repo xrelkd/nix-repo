@@ -3,7 +3,7 @@
 pkgs.stdenv.mkDerivation {
   name = "check-format";
 
-  src = ../.;
+  src = ../..;
 
   buildInputs = with pkgs; [
     nixfmt
