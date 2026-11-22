@@ -26,6 +26,7 @@ A Nix flake that provides an overlay with custom packages, overrides for selecte
 - [Development](#development)
 - [Continuous Integration](#continuous-integration)
 - [Contributing](#contributing)
+  - [Commit Messages](#commit-messages)
 - [License](#license)
 
 ## Features
@@ -273,7 +274,11 @@ nix run .#build-all-derivations
 
 ## Contributing
 
-Commits must follow [Conventional Commits](https://www.conventionalcommits.org/); the rules are in `commitlint.config.mjs` and enforced by CI. There is no separate `CONTRIBUTING.md` file.
+Commits must follow [Conventional Commits](https://www.conventionalcommits.org/); the enforced rules are in `commitlint.config.mjs` and checked by CI.
+
+### Commit Messages
+
+See [Commit Message Convention](docs/COMMIT_MESSAGE_CONVENTION.md) for the repository convention and the prompt used to generate Conventional Commit messages.
 
 ## License
 
