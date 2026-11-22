@@ -16,6 +16,7 @@
     "caracal"
     "catix"
     "clipcat"
+    "ocelot"
     "gdv-dl"
     "tunelo"
     "tunka"
