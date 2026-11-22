@@ -24,9 +24,10 @@ let
     };
 
   builders = {
+    overrides = mkBuilder "overrides" groups.overrides;
     data = mkBuilder "data" groups.data;
     application = mkBuilder "application" groups.application;
-    all = mkBuilder "all" (groups.data ++ groups.application);
+    all = mkBuilder "all" (groups.overrides ++ groups.data ++ groups.application);
   };
 in
 {

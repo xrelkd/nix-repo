@@ -1,4 +1,11 @@
 {
+  overrides = [
+    "mpv"
+    "librime"
+    "fcitx5-rime"
+    "slock"
+  ];
+
   data = [
     "wallpapers-fedora-28-zen"
     "fcitx5-themes-material-color"

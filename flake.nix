@@ -52,6 +52,10 @@
           };
 
           apps = {
+            build-overrides-derivations = {
+              type = "app";
+              program = lib.getExe devshell.builders.overrides;
+            };
             build-data-derivations = {
               type = "app";
               program = lib.getExe devshell.builders.data;
