@@ -40,7 +40,9 @@ rustPlatform.buildRustPackage rec {
 
   meta = with lib; {
     description = "A tunnel manager";
-    license = licenses.gpl3;
+    homepage = "https://github.com/xrelkd/tunka";
+    license = licenses.gpl3Only;
     platforms = platforms.all;
+    mainProgram = "tunka";
   };
 }
