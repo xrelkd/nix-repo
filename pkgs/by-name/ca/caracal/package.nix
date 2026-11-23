@@ -46,6 +46,7 @@ rustPlatform.buildRustPackage rec {
     description = "File downloader written in Rust Programming Language";
     homepage = "https://github.com/xrelkd/caracal";
     license = licenses.gpl3Only;
+    platforms = platforms.linux ++ platforms.darwin;
     maintainers = with maintainers; [ xrelkd ];
     mainProgram = "caracal";
   };
