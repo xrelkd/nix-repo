@@ -7,6 +7,7 @@ fetchurl {
 // {
   meta = with lib; {
     description = "Fedora 28 Zen wallpaper";
+    license = licenses.cc-by-sa-40;
     platforms = platforms.all;
   };
 }
