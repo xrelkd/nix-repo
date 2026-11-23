@@ -38,7 +38,9 @@ rustPlatform.buildRustPackage rec {
 
   meta = with lib; {
     description = "A utility that helps you manage your dotfiles";
-    license = licenses.gpl3;
+    homepage = "https://github.com/xrelkd/axdot";
+    license = licenses.gpl3Only;
     platforms = platforms.all;
+    mainProgram = "axdot";
   };
 }
