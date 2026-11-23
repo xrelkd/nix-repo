@@ -2,11 +2,10 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
-  dpkg,
 }:
 
 stdenvNoCC.mkDerivation rec {
-  pname = "cwtex-q";
+  pname = "cwtex-q-fonts";
   version = "0.41";
 
   src = fetchFromGitHub {
@@ -32,7 +31,11 @@ stdenvNoCC.mkDerivation rec {
   meta = with lib; {
     description = "TrueType Font from cwTeX";
     homepage = "https://github.com/l10n-tw/cwtex-q-fonts";
-    license = licenses.gpl2;
+    license = with licenses; [
+      gpl2Plus
+      fontException
+      ofl
+    ];
     platforms = platforms.all;
   };
 }
