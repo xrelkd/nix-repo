@@ -193,6 +193,8 @@ $ nix run .#build-all-derivations
 
 ## NixOS Modules
 
+The examples set `package` explicitly so they work without applying this flake's overlay.
+
 ```nix
 {
   imports = [
@@ -201,16 +203,22 @@ $ nix run .#build-all-derivations
   ];
 
   programs.slock-customized.enable = true;
+  programs.slock-customized.package = inputs.nix-repo.packages.${pkgs.system}.slock;
   programs.valo.enable = true;
+  programs.valo.package = inputs.nix-repo.packages.${pkgs.system}.valo;
 }
 ```
 
-| Module               | Option                             | Default | Effect                                                 |
-| -------------------- | ---------------------------------- | ------- | ------------------------------------------------------ |
-| `nixosModules.slock` | `programs.slock-customized.enable` | `false` | Installs `pkgs.slock` and a root-owned setuid wrapper. |
-| `nixosModules.valo`  | `programs.valo.enable`             | `false` | Installs `pkgs.valo` and a root-owned setuid wrapper.  |
+| Module               | Option                              | Default      | Effect                                                        |
+| -------------------- | ----------------------------------- | ------------ | ------------------------------------------------------------- |
+| `nixosModules.slock` | `programs.slock-customized.enable`  | `false`      | Enables the setuid wrapper for the customized `slock`.         |
+| `nixosModules.slock` | `programs.slock-customized.package` | `pkgs.slock` | Package used for `systemPackages` and the setuid wrapper.     |
+| `nixosModules.valo`  | `programs.valo.enable`              | `false`      | Enables the setuid wrapper for `valo`.                         |
+| `nixosModules.valo`  | `programs.valo.package`             | `pkgs.valo`  | Package used for `systemPackages` and the setuid wrapper.     |
 
 ## Home Manager Modules
+
+`wired-notify` is not provided by this flake. Add it through your own nixpkgs input or overlay and point `services.wired-notify.package` at that derivation; the example assumes `inputs.my-nixpkgs.wired-notify`.
 
 ```nix
 {
@@ -223,8 +231,9 @@ $ nix run .#build-all-derivations
   services.aria2.enable = true;
   services.aria2.autoStart = true;
   services.clipcat.enable = true;
-  services.clipcat.package = pkgs.clipcat;
+  services.clipcat.package = inputs.nix-repo.packages.${pkgs.system}.clipcat;
   services.wired-notify.enable = true;
+  services.wired-notify.package = inputs.my-nixpkgs.wired-notify;
 }
 ```
 
@@ -236,10 +245,10 @@ $ nix run .#build-all-derivations
 | `services.clipcat.enable`       | boolean      | `false`             | Enables the `clipcatd --no-daemon --replace` graphical-session service. |
 | `services.clipcat.package`      | package      | `pkgs.clipcat`      | Package used for `home.packages` and the daemon executable.             |
 | `services.wired-notify.enable`  | boolean      | `false`             | Enables the D-Bus notification daemon user service.                     |
-| `services.wired-notify.package` | package      | `pkgs.wired-notify` | Package providing the `wired` binary.                                   |
+| `services.wired-notify.package` | package      | `pkgs.wired-notify` | Package providing the `wired` binary; supplied by the consumer.         |
 | `services.wired-notify.config`  | null or path | `null`              | File symlinked to `~/.config/wired/wired.ron`.                          |
 
-The `aria2` service reads `~/.config/aria2/aria2.daemon.conf`. Its `ExecStart` uses `services.aria2.package`.
+The `aria2` service reads `~/.config/aria2/aria2.daemon.conf`. Its `ExecStart` uses `services.aria2.package`. The `clipcat` and `wired-notify` services use their respective `package` options for `home.packages` and `ExecStart`.
 
 ## Configuration
 
