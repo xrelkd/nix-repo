@@ -32,18 +32,17 @@ rustPlatform.buildRustPackage rec {
   useNextest = true;
 
   postInstall = ''
-    for cmd in catix; do
-      installShellCompletion --cmd $cmd \
-        --bash <($out/bin/$cmd completions bash) \
-        --fish <($out/bin/$cmd completions fish) \
-        --zsh  <($out/bin/$cmd completions zsh)
-    done
+    installShellCompletion --cmd catix \
+      --bash <($out/bin/catix completions bash) \
+      --fish <($out/bin/catix completions fish) \
+      --zsh  <($out/bin/catix completions zsh)
   '';
 
   meta = with lib; {
     description = "Nix binary cache proxy service";
     homepage = "https://github.com/xrelkd/catix";
     license = licenses.gpl3Only;
+    platforms = platforms.linux ++ platforms.darwin;
     maintainers = with maintainers; [ xrelkd ];
     mainProgram = "catix";
   };
