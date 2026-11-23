@@ -157,7 +157,6 @@ The Home Manager modules are exported as `homeModules`, not `homeManagerModules`
 | `fcitx5-themes-nord`           | —                     | Fcitx5 Nord theme.                                           |
 | `fcitx5-themes-thep0y`         | —                     | Fcitx5 themes from `thep0y/fcitx5-themes`.                   |
 | `firefox-hidpi`                | `2026-08-05`          | Firefox wrapper that sets `GDK_DPI_SCALE=1.04`.              |
-| `gdv-dl`                       | `0.0.1`               | Downloads videos from Google Drive API URLs.                 |
 | `im-select`                    | `unstable-2024-04-21` | Switches input method from the terminal.                     |
 | `ionicons`                     | `6.0.1`               | Font from the Ionic mobile framework.                        |
 | `lxgw-neoxihei-code`           | `1.304`               | Programming font combining LXGW NeoXiHei and M+ monospace.   |
@@ -186,7 +185,7 @@ $ nix run .#build-all-derivations
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `build-overrides-derivations`   | `mpv`, `librime`, `fcitx5-rime`, `slock`                                                                                                                                                      |
 | `build-data-derivations`        | `wallpapers-fedora-28-zen`, `fcitx5-themes-material-color`, `fcitx5-themes-nord`, `fcitx5-themes-thep0y`, `cns11643-fonts`, `cwtex-q-fonts`, `ionicons`, `lxgw-neoxihei-code`, `wqy-microhei` |
-| `build-application-derivations` | `axon`, `caracal`, `catix`, `clipcat`, `ocelot`, `gdv-dl`, `tunelo`, `tunka`, `valo`, `xenon`, `firefox-hidpi`                                                                                |
+| `build-application-derivations` | `axon`, `caracal`, `catix`, `clipcat`, `ocelot`, `tunelo`, `tunka`, `valo`, `xenon`, `firefox-hidpi`                                                                                          |
 | `build-all-derivations`         | All three groups above (24 packages)                                                                                                                                                          |
 
 `axdot`, `choose-gui`, and `im-select` are available as flake packages but are not part of any build group.
