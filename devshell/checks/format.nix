@@ -6,8 +6,10 @@ pkgs.stdenv.mkDerivation {
   src = ../..;
 
   buildInputs = with pkgs; [
+    biome
     nixfmt
     prettier
+    rumdl
     shfmt
     shellcheck
     treefmt
@@ -19,10 +21,12 @@ pkgs.stdenv.mkDerivation {
       --fail-on-change \
       --no-cache \
       --allow-missing-formatter \
+      --formatters biome \
+      --formatters markdown \
       --formatters nix \
+      --formatters prettier \
       --formatters shell \
-      --formatters toml \
-      --formatters prettier
+      --formatters toml
   '';
 
   installPhase = ''

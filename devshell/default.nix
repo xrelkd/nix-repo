@@ -9,14 +9,17 @@ pkgs.mkShell {
   packages =
     builderPackages
     ++ (with pkgs; [
+      biome
       jq
       nix-update
       nixfmt
-      prettier
-      shfmt
-      treefmt
-      taplo
       nixpkgs-lint
+      prettier
+      rumdl
+      shellcheck
+      shfmt
+      taplo
+      treefmt
     ]);
 
   shellHook = ''

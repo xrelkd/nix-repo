@@ -2,28 +2,25 @@
 command = "nixfmt"
 includes = ["*.nix"]
 
+[formatter.biome]
+command = "biome"
+options = ["format", "--write"]
+includes = ["*.mjs"]
 
 [formatter.prettier]
 command = "prettier"
 options = ["--write"]
-includes = [
-  "*.css",
-  "*.html",
-  "*.js",
-  "*.json",
-  "*.jsx",
-  "*.md",
-  "*.mdx",
-  "*.scss",
-  "*.ts",
-  "*.yaml",
-]
+includes = ["*.yaml"]
 
 [formatter.toml]
 command = "taplo"
 options = ["format", "$@"]
 includes = ["*.toml"]
 
+[formatter.markdown]
+command = "rumdl"
+options = ["fmt"]
+includes = ["*.md"]
 
 [formatter.shell]
 command = "sh"
