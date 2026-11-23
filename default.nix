@@ -4,7 +4,9 @@
 }:
 
 with pkgs;
-{
+
+(import ./pkgs/by-name-packages.nix { inherit pkgs; })
+// {
   mpv = mpv.override {
     scripts = [ mpvScripts.vr-reversal ];
   };
@@ -17,34 +19,4 @@ with pkgs;
     stdenv = clangStdenv;
     conf = builtins.readFile ./program-configs/slock/config.def.h;
   };
-
-  agentbox = callPackage ./pkgs/tools/misc/agentbox { };
-  axdot = callPackage ./pkgs/tools/misc/axdot { };
-  axon = callPackage ./pkgs/applications/networking/cluster/axon { };
-  caracal = callPackage ./pkgs/tools/networking/caracal { };
-  clipcat = callPackage ./pkgs/applications/misc/clipcat { };
-  catix = callPackage ./pkgs/tools/networking/catix { };
-  gdv-dl = callPackage ./pkgs/tools/misc/gdv-dl { };
-  ocelot = callPackage ./pkgs/os-specific/linux/ocelot { };
-  tunelo = callPackage ./pkgs/tools/networking/tunelo { };
-  tunka = callPackage ./pkgs/tools/misc/tunka { };
-  valo = callPackage ./pkgs/os-specific/linux/valo { };
-  xenon = callPackage ./pkgs/tools/misc/xenon { };
-
-  choose-gui = callPackage ./pkgs/tools/misc/choose-gui { };
-  im-select = callPackage ./pkgs/tools/misc/im-select { };
-
-  wallpapers-fedora-28-zen = callPackage ./pkgs/data/wallpapers/fedora-28-zen.nix { };
-
-  fcitx5-themes-material-color = callPackage ./pkgs/data/themes/fcitx5/material-color.nix { };
-  fcitx5-themes-nord = callPackage ./pkgs/data/themes/fcitx5/nord.nix { };
-  fcitx5-themes-thep0y = callPackage ./pkgs/data/themes/fcitx5/thep0y.nix { };
-
-  cns11643-fonts = callPackage ./pkgs/data/fonts/cns11643 { };
-  cwtex-q-fonts = callPackage ./pkgs/data/fonts/cwtex-q { };
-  ionicons = callPackage ./pkgs/data/fonts/ionicons { };
-  lxgw-neoxihei-code = callPackage ./pkgs/data/fonts/lxgw-neoxihei-code { };
-  wqy-microhei = callPackage ./pkgs/data/fonts/wqy-microhei { };
-
-  firefox-hidpi = callPackage ./pkgs/applications/networking/browsers/firefox-hidpi { };
 }
