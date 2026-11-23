@@ -22,7 +22,6 @@ in
     config = mkOption {
       type = types.nullOr types.path;
       default = null;
-      example = ./wired.ron;
       description = "File containing wired configuration.";
     };
   };
