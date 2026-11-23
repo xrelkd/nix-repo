@@ -50,7 +50,7 @@ in
         };
         Service = {
           Type = "forking";
-          ExecStart = "${pkgs.aria2}/bin/aria2c --conf-path %h/.config/aria2/aria2.daemon.conf";
+          ExecStart = "${cfg.package}/bin/aria2c --conf-path %h/.config/aria2/aria2.daemon.conf";
         };
         Install = {
           WantedBy = if cfg.autoStart then [ "default.target" ] else [ ];
