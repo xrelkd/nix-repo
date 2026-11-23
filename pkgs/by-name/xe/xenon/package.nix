@@ -39,10 +39,13 @@ rustPlatform.buildRustPackage rec {
   '';
 
   meta = with lib; {
+    description = "Utility CLI for renaming files, showing the public IP and querying asset prices";
     homepage = "https://github.com/xrelkd/xenon";
     license = with licenses; [
       mit
       asl20
     ];
+    platforms = platforms.all;
+    mainProgram = "xenon";
   };
 }
