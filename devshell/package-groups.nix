@@ -1,5 +1,5 @@
 {
-  overrides = [
+  override = [
     "mpv"
     "librime"
     "fcitx5-rime"
