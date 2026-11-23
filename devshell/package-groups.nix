@@ -25,7 +25,6 @@
     "catix"
     "clipcat"
     "ocelot"
-    "gdv-dl"
     "tunelo"
     "tunka"
     "valo"
