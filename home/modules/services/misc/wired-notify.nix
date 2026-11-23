@@ -16,6 +16,7 @@ in
     package = mkOption {
       type = types.package;
       default = pkgs.wired-notify;
+      defaultText = literalExpression "pkgs.wired-notify";
       description = "wired-notify derivation to use.";
     };
 
