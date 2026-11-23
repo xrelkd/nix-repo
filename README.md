@@ -48,7 +48,7 @@ The flake declares these systems in `flake.nix`:
 - `x86_64-darwin`
 - `aarch64-darwin`
 
-Some individual packages are platform-specific: `ocelot` and `valo` are Linux-only, while `choose-gui` and `im-select` target macOS.
+Some individual packages are platform-specific: `ocelot` is Linux-only, `valo` controls Linux backlights, and `choose-gui` and `im-select` only support `aarch64-darwin`. Nix refuses to evaluate a package that is unsupported on the current system unless `NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1` is set.
 
 ## Repository Layout
 
@@ -117,7 +117,7 @@ Replace `clipcat`, `catix`, or `tunelo` with any attribute from [Packages](#pack
 | Output                              | Value                                                                                                                       |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `packages.<system>.<attr>`          | All 27 attributes listed in [Packages](#packages).                                                                          |
-| `apps.<system>.<name>`              | `build-overrides-derivations`, `build-data-derivations`, `build-application-derivations`, `build-all-derivations`.          |
+| `apps.<system>.<name>`              | `build-override-derivations`, `build-data-derivations`, `build-application-derivations`, `build-all-derivations`.           |
 | `overlays.default`                  | Adds the package set to nixpkgs.                                                                                            |
 | `nixosModules.slock`                | Installs the customized `slock` and its setuid wrapper.                                                                     |
 | `nixosModules.valo`                 | Installs `valo` and its setuid wrapper.                                                                                     |
@@ -143,30 +143,31 @@ The Home Manager modules are exported as `homeModules`, not `homeManagerModules`
 
 ### Repository-defined Packages
 
-| Attribute                      | Version               | Description                                                  |
-| ------------------------------ | --------------------- | ------------------------------------------------------------ |
-| `axdot`                        | `0.3.4`               | Utility for managing dotfiles.                               |
-| `axon`                         | `0.1.4`               | Command-line tool for interacting with Kubernetes.           |
-| `caracal`                      | `0.3.11`              | File downloader written in Rust.                             |
-| `catix`                        | `0.1.9`               | Nix binary cache proxy service.                              |
-| `choose-gui`                   | `1.3.1`               | Fuzzy matcher for macOS using stdin/stdout and a native GUI. |
-| `clipcat`                      | `0.27.0`              | Clipboard manager written in Rust.                           |
-| `cns11643-fonts`               | `103.1+20181001`      | Chinese Standard Interchange Code TrueType fonts.            |
-| `cwtex-q-fonts`                | `0.41`                | TrueType font from cwTeX.                                    |
-| `fcitx5-themes-material-color` | —                     | Fcitx5 Material Color theme.                                 |
-| `fcitx5-themes-nord`           | —                     | Fcitx5 Nord theme.                                           |
-| `fcitx5-themes-thep0y`         | —                     | Fcitx5 themes from `thep0y/fcitx5-themes`.                   |
-| `firefox-hidpi`                | `2026-08-05`          | Firefox wrapper that sets `GDK_DPI_SCALE=1.04`.              |
-| `im-select`                    | `unstable-2024-04-21` | Switches input method from the terminal.                     |
-| `ionicons`                     | `6.0.1`               | Font from the Ionic mobile framework.                        |
-| `lxgw-neoxihei-code`           | `1.304`               | Programming font combining LXGW NeoXiHei and M+ monospace.   |
-| `ocelot`                       | `0.5.5`               | Process supervisor and init system written in Rust.          |
-| `tunelo`                       | `0.1.13`              | Proxy server supporting SOCKS4a, SOCKS5, and HTTP tunnel.    |
-| `tunka`                        | `0.4.7`               | Tunnel manager.                                              |
-| `valo`                         | `0.3.6`               | Controls backlights and other hardware lights on GNU/Linux.  |
-| `wallpapers-fedora-28-zen`     | —                     | Fedora 28 Zen wallpaper.                                     |
-| `wqy-microhei`                 | `0.2.0-beta-3`        | Mainly Chinese Unicode font.                                 |
-| `xenon`                        | `0.9.1`               | Tool from `xrelkd/xenon`.                                    |
+| Attribute                      | Version                     | Description                                                  |
+| ------------------------------ | --------------------------- | ------------------------------------------------------------ |
+| `agentbox`                     | `0.1.0-unstable-2026-11-23` | Zero-image Podman AI sandboxes for isolated agent sessions.  |
+| `axdot`                        | `0.3.4`                     | Utility for managing dotfiles.                               |
+| `axon`                         | `0.1.4`                     | Command-line tool for interacting with Kubernetes.           |
+| `caracal`                      | `0.3.11`                    | File downloader written in Rust.                             |
+| `catix`                        | `0.1.9`                     | Nix binary cache proxy service.                              |
+| `choose-gui`                   | `1.3.1`                     | Fuzzy matcher for macOS using stdin/stdout and a native GUI. |
+| `clipcat`                      | `0.27.0`                    | Clipboard manager written in Rust.                           |
+| `cns11643-fonts`               | `103.1+20181001`            | Chinese Standard Interchange Code TrueType fonts.            |
+| `cwtex-q-fonts`                | `0.41`                      | TrueType font from cwTeX.                                    |
+| `fcitx5-themes-material-color` | —                           | Fcitx5 Material Color theme.                                 |
+| `fcitx5-themes-nord`           | —                           | Fcitx5 Nord theme.                                           |
+| `fcitx5-themes-thep0y`         | —                           | Fcitx5 themes from `thep0y/fcitx5-themes`.                   |
+| `firefox-hidpi`                | `2026-08-05`                | Firefox wrapper that sets `GDK_DPI_SCALE=1.04`.              |
+| `im-select`                    | `unstable-2024-04-21`       | Switches input method from the terminal.                     |
+| `ionicons`                     | `6.0.1`                     | Font from the Ionic mobile framework.                        |
+| `lxgw-neoxihei-code`           | `1.304`                     | Programming font combining LXGW NeoXiHei and M+ monospace.   |
+| `ocelot`                       | `0.5.5`                     | Process supervisor and init system written in Rust.          |
+| `tunelo`                       | `0.1.13`                    | Proxy server supporting SOCKS4a, SOCKS5, and HTTP tunnel.    |
+| `tunka`                        | `0.4.7`                     | Tunnel manager.                                              |
+| `valo`                         | `0.3.6`                     | Controls backlights and other hardware lights on GNU/Linux.  |
+| `wallpapers-fedora-28-zen`     | —                           | Fedora 28 Zen wallpaper.                                     |
+| `wqy-microhei`                 | `0.2.0-beta-3`              | Mainly Chinese Unicode font.                                 |
+| `xenon`                        | `0.9.1`                     | Tool from `xrelkd/xenon`.                                    |
 
 Per-package licenses are declared in each expression in `pkgs/`. The MIT license in [LICENSE](LICENSE) applies to this repository, not to upstream package sources.
 
@@ -175,7 +176,7 @@ Per-package licenses are declared in each expression in `pkgs/`. The MIT license
 The four apps are fixed build scripts generated by `devshell/builders.nix`. Each prints `==> Building <attr>` and runs `nix build --json -L --no-link ".#<attr>" | jq` for every package in its group. They take no arguments, ignore extra arguments, and do not provide a `--help` flag.
 
 ```text
-$ nix run .#build-overrides-derivations
+$ nix run .#build-override-derivations
 $ nix run .#build-data-derivations
 $ nix run .#build-application-derivations
 $ nix run .#build-all-derivations
@@ -183,9 +184,9 @@ $ nix run .#build-all-derivations
 
 | App                             | Package group                                                                                                                                                                                 |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `build-overrides-derivations`   | `mpv`, `librime`, `fcitx5-rime`, `slock`                                                                                                                                                      |
+| `build-override-derivations`    | `mpv`, `librime`, `fcitx5-rime`, `slock`                                                                                                                                                      |
 | `build-data-derivations`        | `wallpapers-fedora-28-zen`, `fcitx5-themes-material-color`, `fcitx5-themes-nord`, `fcitx5-themes-thep0y`, `cns11643-fonts`, `cwtex-q-fonts`, `ionicons`, `lxgw-neoxihei-code`, `wqy-microhei` |
-| `build-application-derivations` | `axon`, `caracal`, `catix`, `clipcat`, `ocelot`, `tunelo`, `tunka`, `valo`, `xenon`, `firefox-hidpi`                                                                                          |
+| `build-application-derivations` | `agentbox`, `axon`, `caracal`, `catix`, `clipcat`, `ocelot`, `tunelo`, `tunka`, `valo`, `xenon`, `firefox-hidpi`                                                                              |
 | `build-all-derivations`         | All three groups above (24 packages)                                                                                                                                                          |
 
 `axdot`, `choose-gui`, and `im-select` are available as flake packages but are not part of any build group.
@@ -268,7 +269,7 @@ nix run .#build-all-derivations
 
 ## Continuous Integration
 
-- `.github/workflows/nix.yaml` builds the application and data package groups with Cachix.
+- `.github/workflows/nix.yaml` builds the override, application, and data package groups with Cachix.
 - `.github/workflows/lints.yaml` runs the format check and commitlint.
 - `.github/workflows/update-lock.yaml` periodically proposes `flake.lock` updates.
 - `.github/dependabot.yaml` updates GitHub Actions dependencies.
