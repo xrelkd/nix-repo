@@ -19,6 +19,7 @@
   ];
 
   application = [
+    "agentbox"
     "axon"
     "caracal"
     "catix"

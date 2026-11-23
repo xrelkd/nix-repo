@@ -18,6 +18,7 @@ with pkgs;
     conf = builtins.readFile ./program-configs/slock/config.def.h;
   };
 
+  agentbox = callPackage ./pkgs/tools/misc/agentbox { };
   axdot = callPackage ./pkgs/tools/misc/axdot { };
   axon = callPackage ./pkgs/applications/networking/cluster/axon { };
   caracal = callPackage ./pkgs/tools/networking/caracal { };
