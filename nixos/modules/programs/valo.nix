@@ -20,16 +20,23 @@ in
           Whether to install Valo backlight control command.
         '';
       };
+
+      package = mkOption {
+        type = types.package;
+        default = pkgs.valo;
+        defaultText = literalExpression "pkgs.valo";
+        description = "valo derivation to use.";
+      };
     };
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.valo ];
+    environment.systemPackages = [ cfg.package ];
     security.wrappers.valo = {
       setuid = true;
       owner = "root";
       group = "root";
-      source = "${pkgs.valo}/bin/valo";
+      source = "${cfg.package}/bin/valo";
     };
   };
 }
