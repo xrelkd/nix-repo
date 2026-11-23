@@ -31,6 +31,7 @@ rustPlatform.buildRustPackage rec {
     description = "Tool to control backlights (and other hardware lights) in GNU/Linux";
     homepage = "https://github.com/xrelkd/valo";
     license = licenses.gpl3Only;
+    platforms = platforms.linux;
     maintainers = with maintainers; [ xrelkd ];
     mainProgram = "valo";
   };
