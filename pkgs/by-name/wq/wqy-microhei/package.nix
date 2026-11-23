@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation rec {
     hash = "sha256-54J7yhZHWgLyndelkgjBeQmSA3pD1kiWMgVyNi0b150=";
   };
 
-  buildInputs = [ dpkg ];
+  nativeBuildInputs = [ dpkg ];
 
   phases = [
     "unpackPhase"
@@ -22,11 +22,11 @@ stdenvNoCC.mkDerivation rec {
   ];
 
   unpackPhase = ''
-    dpkg-deb -x $src $TMPDIR
+    dpkg-deb -x $src unpack
   '';
 
   installPhase = ''
-    install -Dm644 $TMPDIR/usr/share/fonts/truetype/wqy/wqy-microhei.ttc $out/share/fonts/truetype/wqy/wqy-microhei.ttc
+    install -Dm644 unpack/usr/share/fonts/truetype/wqy/wqy-microhei.ttc $out/share/fonts/truetype/wqy/wqy-microhei.ttc
   '';
 
   meta = with lib; {
