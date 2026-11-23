@@ -56,12 +56,14 @@ Some individual packages are platform-specific: `ocelot` and `valo` are Linux-on
 | ------------------ | ---------------------------------------------------------------------------------------- |
 | `default.nix`      | Canonical attribute set of all packages; used by both `packages` and `overlays.default`. |
 | `flake.nix`        | Flake outputs: packages, apps, checks, formatter, dev shell, overlay, and modules.       |
-| `pkgs/`            | Package expressions, organized by category in the style of nixpkgs.                      |
+| `pkgs/`            | Package expressions in `pkgs/by-name/<shard>/<attr>/package.nix`.                        |
 | `nixos/`           | NixOS modules under `nixos/modules/`.                                                    |
 | `home/`            | Home Manager modules under `home/modules/`.                                              |
 | `program-configs/` | Static program configuration compiled into package overrides (currently only `slock`).   |
 | `devshell/`        | Build-script generator, package groups, dev shell, and format check.                     |
 | `.github/`         | CI workflows for package builds, formatting, commit linting, and lockfile updates.       |
+
+`pkgs/by-name-packages.nix` discovers entries under `pkgs/by-name` and makes each `package.nix` available with `callPackage`. Explicit overrides stay in `default.nix`.
 
 ## Installation
 
