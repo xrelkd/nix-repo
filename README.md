@@ -232,14 +232,14 @@ $ nix run .#build-all-derivations
 | ------------------------------- | ------------ | ------------------- | ----------------------------------------------------------------------- |
 | `services.aria2.enable`         | boolean      | `false`             | Enables the headless `aria2` user service.                              |
 | `services.aria2.autoStart`      | boolean      | `false`             | Wants the service by `default.target`.                                  |
-| `services.aria2.package`        | package      | `pkgs.aria2`        | Package placed in `home.packages`.                                      |
+| `services.aria2.package`        | package      | `pkgs.aria2`        | Package used for `home.packages` and the daemon executable.             |
 | `services.clipcat.enable`       | boolean      | `false`             | Enables the `clipcatd --no-daemon --replace` graphical-session service. |
 | `services.clipcat.package`      | package      | `pkgs.clipcat`      | Package used for `home.packages` and the daemon executable.             |
 | `services.wired-notify.enable`  | boolean      | `false`             | Enables the D-Bus notification daemon user service.                     |
 | `services.wired-notify.package` | package      | `pkgs.wired-notify` | Package providing the `wired` binary.                                   |
 | `services.wired-notify.config`  | null or path | `null`              | File symlinked to `~/.config/wired/wired.ron`.                          |
 
-The `aria2` service reads `~/.config/aria2/aria2.daemon.conf`. Its `ExecStart` currently uses `${pkgs.aria2}/bin/aria2c` rather than `services.aria2.package`.
+The `aria2` service reads `~/.config/aria2/aria2.daemon.conf`. Its `ExecStart` uses `services.aria2.package`.
 
 ## Configuration
 
