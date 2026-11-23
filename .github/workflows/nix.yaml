@@ -32,6 +32,23 @@ jobs:
       - name: Build Application Packages
         run: nix run .#build-application-derivations
 
+  build-override-packages:
+    name: Build Override Packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v23
+
+      - uses: cachix/cachix-action@v17
+        with:
+          name: "${{ secrets.CACHIX_NAME }}"
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: Build Override Packages
+        run: nix run .#build-override-derivations
+
   build-data-packages:
     name: Build Data Packages
     runs-on: ubuntu-latest
