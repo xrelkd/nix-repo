@@ -13,7 +13,7 @@ in
 {
 
   options.services.clipcat = {
-    enable = mkEnableOption (lib.mdDoc "Clipcat clipboard daemon");
+    enable = mkEnableOption "Clipcat clipboard daemon";
 
     package = mkOption {
       type = types.package;
