@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation rec {
   meta = with lib; {
     description = "Chinese Standard Interchange Code (TrueType fonts)";
     homepage = "https://www.cns11643.gov.tw";
-    license = licenses.free;
+    license = licenses.ofl;
     platforms = platforms.all;
   };
 }
