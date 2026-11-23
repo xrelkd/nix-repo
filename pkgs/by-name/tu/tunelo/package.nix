@@ -37,6 +37,8 @@ rustPlatform.buildRustPackage rec {
     description = "Proxy server that supports SOCKS4a, SOCKS5 and HTTP tunnel";
     homepage = "https://github.com/xrelkd/tunelo";
     license = licenses.gpl3Only;
+    platforms = platforms.all;
     maintainers = with maintainers; [ xrelkd ];
+    mainProgram = "tunelo";
   };
 }
