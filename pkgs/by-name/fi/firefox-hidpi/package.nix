@@ -1,4 +1,5 @@
 {
+  lib,
   stdenvNoCC,
   makeWrapper,
   firefox,
@@ -6,11 +7,9 @@
 
 stdenvNoCC.mkDerivation {
   pname = "firefox-hidpi";
-  version = "2026-08-05";
+  version = firefox.version;
 
   phases = [ "installPhase" ];
-
-  buildInputs = [ firefox ];
 
   nativeBuildInputs = [ makeWrapper ];
 
@@ -23,6 +22,14 @@ stdenvNoCC.mkDerivation {
     cp ${firefox}/share/applications/firefox.desktop $out/share/applications/firefox.desktop
 
     substituteInPlace $out/share/applications/firefox.desktop \
-      --replace "Exec=firefox" "Exec=$out/bin/firefox"
+      --replace-fail "Exec=firefox" "Exec=$out/bin/firefox"
   '';
+
+  meta = with lib; {
+    description = "Firefox wrapper with HiDPI scaling enabled";
+    homepage = "https://www.mozilla.org/firefox/";
+    license = licenses.mpl20;
+    platforms = platforms.linux;
+    mainProgram = "firefox";
+  };
 }
