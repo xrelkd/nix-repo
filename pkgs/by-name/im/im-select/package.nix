@@ -6,17 +6,17 @@
 
 stdenv.mkDerivation rec {
   pname = "im-select";
-  version = "unstable-2024-04-21";
+  version = "unstable-2023-04-19";
 
   src =
-    if stdenv.isAarch64 then
+    if stdenv.hostPlatform.isAarch64 then
       (fetchurl {
-        url = "https://raw.githubusercontent.com/daipeihust/im-select/master/macOS/out/apple/im-select";
+        url = "https://raw.githubusercontent.com/daipeihust/im-select/11ed9277fb3118b63b36cfca57c39fa4cc882512/macOS/out/apple/im-select";
         hash = "sha256-MbBlL421nvBpBs1qhjXcweYWKILoMAytSCqLW5f/8pA=";
       })
-    else if stdenv.isx86_64 then
+    else if stdenv.hostPlatform.isx86_64 then
       (fetchurl {
-        url = "https://raw.githubusercontent.com/daipeihust/im-select/master/macOS/out/intel/im-select";
+        url = "https://raw.githubusercontent.com/daipeihust/im-select/11ed9277fb3118b63b36cfca57c39fa4cc882512/macOS/out/intel/im-select";
         hash = "sha256-LeNx7tNev6XX644JF0nDdLOFZwnlWgOHlAmuWDFoePk=";
       })
     else
