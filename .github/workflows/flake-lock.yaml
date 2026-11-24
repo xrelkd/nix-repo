@@ -1,6 +1,7 @@
 name: Update flake.lock
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "30 0,6,12,18 * * *"
 
@@ -22,5 +23,13 @@ jobs:
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v29
         with:
-          pr-title: "chore(nix): update `flake.lock`"
-          commit-msg: "chore(nix): update `flake.lock`"
+          base: main
+          branch: chore/nix-flake-lock
+          pr-title: "build(nix): update `flake.lock`"
+          commit-msg: "build(nix): update `flake.lock`"
+          pr-body: |
+            Automated by [update-flake-lock](https://github.com/DeterminateSystems/update-flake-lock).
+
+            ```
+            {{ env.GIT_COMMIT_MESSAGE }}
+            ```
